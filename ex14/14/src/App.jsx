@@ -1,10 +1,6 @@
 import React from "react";
 import "./App.css";
 
-// Assume src/Images/src_image.png exists and is imported
-// You might need to adjust the path based on your project structure
-import srcImage from "./Images/src_image.png";
-
 // --- Part 1: Image Display ---
 function ImageDisplay() {
   return (
@@ -12,17 +8,11 @@ function ImageDisplay() {
       <h3>1. Image Display</h3>
       <div>
         <p>a) Image from public/Images folder:</p>
-        {/* Path relative to the public folder */}
-        <img
-          src="/Images/public_image.png"
-          alt="Public Folder Image"
-          className="display-image"
-        />
+        {/* Removed image */}
       </div>
       <div>
         <p>b) Image from src/Images folder:</p>
-        {/* Use the imported variable */}
-        <img src={srcImage} alt="Src Folder Image" className="display-image" />
+        {/* Removed image */}
       </div>
     </div>
   );
