@@ -1,83 +1,285 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Classwork Exercises</title>
-    <style>
-        :root {
-            --primary-color: #3a86ff;
-            --bg-color: #f8f9fa;
-            --text-color: #333;
-            --hover-color: #2667cc;
-        }
-        
-        body {
-            font-family: 'Segoe UI', Roboto, -apple-system, BlinkMacSystemFont, sans-serif;
-            padding: 5% 10%;
-            max-width: 800px;
-            margin: 0 auto;
-            line-height: 1.6;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-        }
-        
-        h1 {
-            font-weight: 300;
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
-            color: var(--text-color);
-            border-bottom: 1px solid #eee;
-            padding-bottom: 0.5rem;
-        }
-        
-        ul {
-            list-style: none;
-            padding: 0;
-        }
-        
-        li {
-            margin-bottom: 12px;
-            transition: transform 0.2s ease;
-            padding: 8px 12px;
-            border-radius: 4px;
-        }
-        
-        li:hover {
-            transform: translateX(5px);
-            background-color: rgba(0,0,0,0.02);
-        }
-        
-        a {
-            text-decoration: none;
-            color: var(--primary-color);
-            display: block;
-            font-weight: 500;
-        }
-        
-        a:hover {
-            color: var(--hover-color);
-        }
-    </style>
-</head>
-<body>
-    <h1>Classwork Exercises</h1>
-    <ul>
-        <li><a href="ex1/1.html" target="_blank">Exercise 1</a></li>
-        <li><a href="ex2/1.html" target="_blank">Exercise 2</a></li>
-        <li><a href="ex3/1.html" target="_blank">Exercise 3</a></li>
-        <li><a href="ex4/1.html" target="_blank">Exercise 4</a></li>
-        <li><a href="ex5/index.html" target="_blank">Exercise 5</a></li>
-        <li><a href="ex6/1.html" target="_blank">Exercise 6</a></li>
-        <li><a href="ex7/index.html" target="_blank">Exercise 7</a></li>
-        <li><a href="ex8/exercise8.html" target="_blank">Exercise 8</a></li>
-        <li><a href="ex9/1.html" target="_blank">Exercise 9</a></li>
-        <li><a href="ex10/1.html" target="_blank">Exercise 10</a></li>
-        <li><a href="ex11/1.html" target="_blank">Exercise 11</a></li>
-        <li><a href="ex12/1.html" target="_blank">Exercise 12</a></li>
-        <li><a href="ex13/13/index.html" target="_blank">Exercise 13 (React)</a></li>
-        <li><a href="ex14/14/index.html" target="_blank">Exercise 14 (React)</a></li>
-        <li><a href="ex15/1/1/index.html" target="_blank">Exercise 15 (React)</a></li>
-    </ul>
-</body>
+    <head>
+        <meta charset="""UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Classwork Exercises</title>
+        <style>
+            :root {
+                --primary-color: #3a86ff;
+                --bg-color: #f8f9fa;
+                --text-color: #333;
+                --hover-color: #2667cc;
+                --shadow-color: rgba(0, 0, 0, 0.05);
+            }
+
+            body {
+                font-family: "Segoe UI", Roboto, -apple-system, BlinkMacSystemFont,
+                    sans-serif;
+                padding: 5% 10%;
+                max-width: 800px;
+                margin: 0 auto;
+                line-height: 1.6;
+                background-color: var(--bg-color);
+                color: var(--text-color);
+                animation: fadeIn 0.8s ease-in-out;
+            }
+
+            @keyframes fadeIn {
+                from { opacity: 0; transform: translateY(10px); }
+                to { opacity: 1; transform: translateY(0); }
+            }
+
+            h1 {
+                font-weight: 300;
+                font-size: 2.5rem;
+                margin-bottom: 1.5rem;
+                color: var(--text-color);
+                border-bottom: 1px solid #eee;
+                padding-bottom: 0.5rem;
+                position: relative;
+            }
+
+            h1::after {
+                content: '';
+                position: absolute;
+                bottom: -1px;
+                left: 0;
+                width: 80px;
+                height: 3px;
+                background-color: var(--primary-color);
+                transform-origin: left;
+                animation: growWidth 1s ease-out forwards;
+            }
+
+            @keyframes growWidth {
+                from { transform: scaleX(0); }
+                to { transform: scaleX(1); }
+            }
+
+            ul {
+                list-style: none;
+                padding: 0;
+            }
+
+            li {
+                margin-bottom: 12px;
+                transition: all 0.3s ease;
+                padding: 10px 15px;
+                border-radius: 6px;
+                box-shadow: 0 2px 5px var(--shadow-color);
+                background-color: white;
+            }
+
+            li:hover {
+                transform: translateX(5px) translateY(-2px);
+                box-shadow: 0 5px 15px var(--shadow-color);
+            }
+
+            a {
+                text-decoration: none;
+                color: var(--primary-color);
+                display: block;
+                font-weight: 500;
+                transition: color 0.2s ease;
+            }
+
+            a:hover {
+                color: var(--hover-color);
+            }
+
+            .exercise-group {
+                cursor: pointer;
+            }
+            
+            .exercise-title {
+                color: var(--primary-color);
+                font-weight: 600;
+                display: block;
+                position: relative;
+                padding-right: 20px;
+            }
+            
+            .exercise-title::after {
+                content: '▼';
+                position: absolute;
+                right: 0;
+                font-size: 0.8em;
+                transition: transform 0.3s ease;
+                opacity: 0.7;
+            }
+            
+            .active .exercise-title::after {
+                transform: rotate(180deg);
+            }
+            
+            .parts-list {
+                max-height: 0;
+                overflow: hidden;
+                margin-left: 20px;
+                margin-top: 0;
+                transition: all 0.4s ease-out;
+                opacity: 0;
+            }
+            
+            .parts-list li {
+                margin-bottom: 6px;
+                transform: translateX(-10px);
+                opacity: 0;
+                transition: all 0.3s ease-out;
+            }
+            
+            .active .parts-list {
+                max-height: 500px;
+                margin-top: 12px;
+                opacity: 1;
+            }
+            
+            .active .parts-list li {
+                transform: translateX(0);
+                opacity: 1;
+            }
+            
+            /* Staggered animations for list items */
+            .exercise-list > li {
+                opacity: 0;
+                animation: slideIn 0.5s ease-out forwards;
+            }
+            
+            @keyframes slideIn {
+                from { opacity: 0; transform: translateY(20px); }
+                to { opacity: 1; transform: translateY(0); }
+            }
+            
+            /* Stagger each list item animation */
+            .exercise-list > li:nth-child(1) { animation-delay: 0.1s; }
+            .exercise-list > li:nth-child(2) { animation-delay: 0.15s; }
+            .exercise-list > li:nth-child(3) { animation-delay: 0.2s; }
+            .exercise-list > li:nth-child(4) { animation-delay: 0.25s; }
+            .exercise-list > li:nth-child(5) { animation-delay: 0.3s; }
+            .exercise-list > li:nth-child(6) { animation-delay: 0.35s; }
+            .exercise-list > li:nth-child(7) { animation-delay: 0.4s; }
+            .exercise-list > li:nth-child(8) { animation-delay: 0.45s; }
+            .exercise-list > li:nth-child(9) { animation-delay: 0.5s; }
+            .exercise-list > li:nth-child(10) { animation-delay: 0.55s; }
+            .exercise-list > li:nth-child(11) { animation-delay: 0.6s; }
+            .exercise-list > li:nth-child(12) { animation-delay: 0.65s; }
+            .exercise-list > li:nth-child(13) { animation-delay: 0.7s; }
+            .exercise-list > li:nth-child(14) { animation-delay: 0.75s; }
+            .exercise-list > li:nth-child(15) { animation-delay: 0.8s; }
+        </style>
+    </head>
+    <body>
+        <h1>Classwork Exercises - Abeer Gupta 23BCE1599</h1>
+        <ul class="exercise-list">
+                <!-- Exercise 1 -->
+                <li class="exercise-group">
+                        <span class="exercise-title">Exercise 1</span>
+                        <ul class="parts-list">
+                                <li><a href="ex1/1.html" target="_blank">Part 1</a></li>
+                                <li><a href="ex1/2.html" target="_blank">Part 2</a></li>
+                        </ul>
+                </li>
+                
+                <!-- Exercise 2-8 (single parts) -->
+                <li><a href="ex2/1.html" target="_blank">Exercise 2</a></li>
+                <li><a href="ex3/1.html" target="_blank">Exercise 3</a></li>
+                <li><a href="ex4/1.html" target="_blank">Exercise 4</a></li>
+                <li><a href="ex5/index.html" target="_blank">Exercise 5</a></li>
+                <li><a href="ex6/1.html" target="_blank">Exercise 6</a></li>
+                <li><a href="ex7/index.html" target="_blank">Exercise 7</a></li>
+                <li><a href="ex8/exercise8.html" target="_blank">Exercise 8</a></li>
+                
+                <!-- Exercise 9 -->
+                <li class="exercise-group">
+                        <span class="exercise-title">Exercise 9</span>
+                        <ul class="parts-list">
+                                <li><a href="ex9/1.html" target="_blank">Part 1</a></li>
+                                <li><a href="ex9/2.html" target="_blank">Part 2</a></li>
+                                <li><a href="ex9/3.html" target="_blank">Part 3</a></li>
+                        </ul>
+                </li>
+                
+                <!-- Exercise 10 -->
+                <li class="exercise-group">
+                        <span class="exercise-title">Exercise 10</span>
+                        <ul class="parts-list">
+                                <li><a href="ex10/1.html" target="_blank">Part 1</a></li>
+                                <li><a href="ex10/2.html" target="_blank">Part 2</a></li>
+                                <li><a href="ex10/3.html" target="_blank">Part 3</a></li>
+                                <li><a href="ex10/order.html" target="_blank">Order</a></li>
+                        </ul>
+                </li>
+                
+                <!-- Exercise 11 -->
+                <li class="exercise-group">
+                        <span class="exercise-title">Exercise 11</span>
+                        <ul class="parts-list">
+                                <li><a href="ex11/1.html" target="_blank">Part 1</a></li>
+                                <li><a href="ex11/2.html" target="_blank">Part 2</a></li>
+                                <li><a href="ex11/3.html" target="_blank">Part 3</a></li>
+                        </ul>
+                </li>
+                
+                <!-- Exercise 12 -->
+                <li class="exercise-group">
+                        <span class="exercise-title">Exercise 12</span>
+                        <ul class="parts-list">
+                                <li><a href="ex12/1.html" target="_blank">Part 1</a></li>
+                                <li><a href="ex12/2.html" target="_blank">Part 2</a></li>
+                                <li><a href="ex12/3.htm" target="_blank">Part 3</a></li>
+                                <li><a href="ex12/4.htm" target="_blank">Part 4</a></li>
+                                <li><a href="ex12/5.html" target="_blank">Part 5</a></li>
+                        </ul>
+                </li>
+                
+                <!-- Exercise 13-15 (React) -->
+                <li class="exercise-group">
+                        <span class="exercise-title">Exercise 13 (React)</span>
+                        <ul class="parts-list">
+                                <li><a href="ex13/13/src/App.jsx" target="_blank">App.jsx</a></li>
+                                <li><a href="ex13/13/src/App.css" target="_blank">App.css</a></li>
+                        </ul>
+                </li>
+                <li class="exercise-group">
+                        <span class="exercise-title">Exercise 14 (React)</span>
+                        <ul class="parts-list">
+                                <li><a href="ex14/14/src/App.jsx" target="_blank">App.jsx</a></li>
+                                <li><a href="ex14/14/src/App.css" target="_blank">App.css</a></li>
+                        </ul>
+                </li>
+                <li class="exercise-group">
+                        <span class="exercise-title">Exercise 15 (React)</span>
+                        <ul class="parts-list">
+                                <li><a href="ex15/1/1/src/App.jsx" target="_blank">App.jsx</a></li>
+                                <li><a href="ex15/1/1/src/App.css" target="_blank">App.css</a></li>
+                        </ul>
+                </li>
+        </ul>
+
+        <script>
+                document.addEventListener('DOMContentLoaded', function() {
+                        const exerciseGroups = document.querySelectorAll('.exercise-group');
+                        
+                        exerciseGroups.forEach(group => {
+                                group.addEventListener('click', function(e) {
+                                        // Don't toggle if clicking on a link
+                                        if (e.target.tagName !== 'A') {
+                                                this.classList.toggle('active');
+                                                
+                                                // Apply staggered animations to child items when expanded
+                                                if (this.classList.contains('active')) {
+                                                        const items = this.querySelectorAll('.parts-list li');
+                                                        items.forEach((item, index) => {
+                                                                item.style.transitionDelay = (0.05 * index) + 's';
+                                                        });
+                                                }
+                                                
+                                                e.stopPropagation();
+                                        }
+                                });
+                        });
+                });
+        </script>
+    </body>
 </html>
