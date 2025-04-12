@@ -1,244 +1,225 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="""UTF-8" />
+    <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Classwork Exercises</title>
+    <title>Abeer Gupta - Classwork Exercises</title>
     <style>
       :root {
-        --primary-color: #3a86ff;
-        --bg-color: #f8f9fa;
-        --text-color: #333;
-        --hover-color: #2667cc;
-        --shadow-color: rgba(0, 0, 0, 0.05);
+        --primary: #5b8ff3;
+        --surface: #ffffff;
+        --background: #f9faff;
+        --text: #1a1d24;
+        --border: #e2e8f0;
+        --radius: 12px;
+        --shadow: 0 8px 24px rgba(0, 34, 102, 0.06);
+        --transition: all 0.28s cubic-bezier(0.175, 0.885, 0.32, 1.1);
       }
 
       body {
-        font-family: "Segoe UI", Roboto, -apple-system, BlinkMacSystemFont,
-          sans-serif;
-        padding: 5% 10%;
-        max-width: 800px;
+        font-family: "Inter", -apple-system, sans-serif;
+        line-height: 1.5;
+        padding: 4rem 2rem;
+        max-width: 780px;
         margin: 0 auto;
-        line-height: 1.6;
-        background-color: var(--bg-color);
-        color: var(--text-color);
-        animation: fadeIn 0.8s ease-in-out;
+        background: var(--background);
+        color: var(--text);
+        animation: fadeIn 0.8s ease-out;
       }
 
       @keyframes fadeIn {
         from {
           opacity: 0;
-          transform: translateY(10px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
+          transform: translateY(20px);
         }
       }
 
       h1 {
-        font-weight: 300;
-        font-size: 2.5rem;
-        margin-bottom: 1.5rem;
-        color: var(--text-color);
-        border-bottom: 1px solid #eee;
-        padding-bottom: 0.5rem;
+        font-weight: 600;
+        font-size: 2.4rem;
+        margin: 0 0 3rem;
         position: relative;
+        padding-bottom: 1.5rem;
       }
 
       h1::after {
         content: "";
         position: absolute;
-        bottom: -1px;
+        bottom: 0;
         left: 0;
-        width: 80px;
+        width: 48px;
         height: 3px;
-        background-color: var(--primary-color);
-        transform-origin: left;
-        animation: growWidth 1s ease-out forwards;
+        background: var(--primary);
+        border-radius: 2px;
       }
 
-      @keyframes growWidth {
-        from {
-          transform: scaleX(0);
-        }
-        to {
-          transform: scaleX(1);
-        }
-      }
-
-      ul {
+      .exercise-list {
         list-style: none;
         padding: 0;
+        display: grid;
+        gap: 0.75rem;
       }
 
       li {
-        margin-bottom: 12px;
-        transition: all 0.3s ease;
-        padding: 10px 15px;
-        border-radius: 6px;
-        box-shadow: 0 2px 5px var(--shadow-color);
-        background-color: white;
-      }
-
-      li:hover {
-        transform: translateX(5px) translateY(-2px);
-        box-shadow: 0 5px 15px var(--shadow-color);
-      }
-
-      a {
-        text-decoration: none;
-        color: var(--primary-color);
-        display: block;
-        font-weight: 500;
-        transition: color 0.2s ease;
-      }
-
-      a:hover {
-        color: var(--hover-color);
+        background: var(--surface);
+        border-radius: var(--radius);
+        padding: 1rem;
+        transition: var(--transition);
+        box-shadow: var(--shadow);
+        border: 1px solid var(--border);
       }
 
       .exercise-group {
         cursor: pointer;
+        position: relative;
       }
 
       .exercise-title {
-        color: var(--primary-color);
-        font-weight: 600;
-        display: block;
-        position: relative;
-        padding-right: 20px;
-      }
-
-      .exercise-title::after {
-        content: "▼";
-        position: absolute;
-        right: 0;
-        font-size: 0.8em;
-        transition: transform 0.3s ease;
-        opacity: 0.7;
-      }
-
-      .active .exercise-title::after {
-        transform: rotate(180deg);
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        color: var(--primary);
+        font-weight: 500;
       }
 
       .parts-list {
         max-height: 0;
         overflow: hidden;
-        margin-left: 20px;
-        margin-top: 0;
-        transition: all 0.4s ease-out;
-        opacity: 0;
+        padding-left: 1.25rem;
+        margin: 0;
+        transition: max-height 0.3s ease-out;
       }
 
       .parts-list li {
-        margin-bottom: 6px;
-        transform: translateX(-10px);
-        opacity: 0;
-        transition: all 0.3s ease-out;
+        background: none;
+        box-shadow: none;
+        border: none;
+        padding: 0.5rem 0;
+        animation: slideIn 0.4s ease-out backwards;
       }
 
-      .active .parts-list {
-        max-height: 500px;
-        margin-top: 12px;
-        opacity: 1;
+      /* Hover reveal for desktop */
+      @media (hover: hover) {
+        .exercise-group:hover .parts-list {
+          max-height: 400px;
+        }
       }
 
-      .active .parts-list li {
-        transform: translateX(0);
-        opacity: 1;
+      /* Active state styling */
+      .exercise-group.active .parts-list {
+        max-height: 1000px !important;
       }
 
-      /* Staggered animations for list items */
-      .exercise-list > li {
-        opacity: 0;
-        animation: slideIn 0.5s ease-out forwards;
+      .exercise-group.active {
+        background: rgba(91, 143, 243, 0.04);
+      }
+
+      a {
+        color: var(--text);
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        transition: opacity 0.2s ease;
+      }
+
+      a:hover {
+        opacity: 0.8;
       }
 
       @keyframes slideIn {
         from {
           opacity: 0;
-          transform: translateY(20px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
+          transform: translateX(-8px);
         }
       }
 
-      /* Stagger each list item animation */
-      .exercise-list > li:nth-child(1) {
-        animation-delay: 0.1s;
-      }
-      .exercise-list > li:nth-child(2) {
-        animation-delay: 0.15s;
-      }
-      .exercise-list > li:nth-child(3) {
-        animation-delay: 0.2s;
-      }
-      .exercise-list > li:nth-child(4) {
-        animation-delay: 0.25s;
-      }
-      .exercise-list > li:nth-child(5) {
-        animation-delay: 0.3s;
-      }
-      .exercise-list > li:nth-child(6) {
-        animation-delay: 0.35s;
-      }
-      .exercise-list > li:nth-child(7) {
-        animation-delay: 0.4s;
-      }
-      .exercise-list > li:nth-child(8) {
-        animation-delay: 0.45s;
-      }
-      .exercise-list > li:nth-child(9) {
-        animation-delay: 0.5s;
-      }
-      .exercise-list > li:nth-child(10) {
-        animation-delay: 0.55s;
-      }
-      .exercise-list > li:nth-child(11) {
-        animation-delay: 0.6s;
-      }
-      .exercise-list > li:nth-child(12) {
-        animation-delay: 0.65s;
-      }
-      .exercise-list > li:nth-child(13) {
-        animation-delay: 0.7s;
-      }
-      .exercise-list > li:nth-child(14) {
-        animation-delay: 0.75s;
-      }
-      .exercise-list > li:nth-child(15) {
-        animation-delay: 0.8s;
+      @media (max-width: 640px) {
+        body {
+          padding: 2.5rem 1rem;
+        }
+        h1 {
+          font-size: 2rem;
+        }
       }
     </style>
   </head>
   <body>
-    <h1>Classwork Exercises - Abeer Gupta 23BCE1599</h1>
+    <h1>
+      Abeer Gupta<br /><small style="font-size: 0.8em; color: #64748b"
+        >23BCE1599</small
+      >
+    </h1>
+
     <ul class="exercise-list">
       <!-- Exercise 1 -->
       <li class="exercise-group">
-        <span class="exercise-title">Exercise 1</span>
+        <div class="exercise-title">Exercise 1</div>
         <ul class="parts-list">
           <li><a href="ex1/1.html" target="_blank">Part 1</a></li>
           <li><a href="ex1/2.html" target="_blank">Part 2</a></li>
         </ul>
       </li>
 
-      <!-- Exercise 2-8 (single parts) -->
-      <li><a href="ex2/1.html" target="_blank">Exercise 2</a></li>
-      <li><a href="ex3/1.html" target="_blank">Exercise 3</a></li>
-      <li><a href="ex4/1.html" target="_blank">Exercise 4</a></li>
-      <li><a href="ex5/index.html" target="_blank">Exercise 5</a></li>
-      <li><a href="ex6/1.html" target="_blank">Exercise 6</a></li>
-      <li><a href="ex7/index.html" target="_blank">Exercise 7</a></li>
-      <li><a href="ex8/exercise8.html" target="_blank">Exercise 8</a></li>
+      <!-- Exercise 2 -->
+      <li class="exercise-group">
+        <div class="exercise-title">Exercise 2</div>
+        <ul class="parts-list">
+          <li><a href="ex2/1.html" target="_blank">Part 1</a></li>
+        </ul>
+      </li>
+
+      <!-- Exercise 3 -->
+      <li class="exercise-group">
+        <div class="exercise-title">Exercise 3</div>
+        <ul class="parts-list">
+          <li><a href="ex3/1.html" target="_blank">Part 1</a></li>
+        </ul>
+      </li>
+
+      <!-- Exercise 4 -->
+      <li class="exercise-group">
+        <div class="exercise-title">Exercise 4</div>
+        <ul class="parts-list">
+          <li><a href="ex4/1.html" target="_blank">Part 1</a></li>
+        </ul>
+      </li>
+
+      <!-- Exercise 5 -->
+      <li class="exercise-group">
+        <div class="exercise-title">Exercise 5</div>
+        <ul class="parts-list">
+          <li><a href="ex5/index.html" target="_blank">Part 1</a></li>
+        </ul>
+      </li>
+
+      <!-- Exercise 6 -->
+      <li class="exercise-group">
+        <div class="exercise-title">Exercise 6</div>
+        <ul class="parts-list">
+          <li><a href="ex6/1.html" target="_blank">Part 1</a></li>
+        </ul>
+      </li>
+
+      <!-- Exercise 7 -->
+      <li class="exercise-group">
+        <div class="exercise-title">Exercise 7</div>
+        <ul class="parts-list">
+          <li><a href="ex7/index.html" target="_blank">Part 1</a></li>
+        </ul>
+      </li>
+
+      <!-- Exercise 8 -->
+      <li class="exercise-group">
+        <div class="exercise-title">Exercise 8</div>
+        <ul class="parts-list">
+          <li><a href="ex8/exercise8.html" target="_blank">Part 1</a></li>
+        </ul>
+      </li>
 
       <!-- Exercise 9 -->
       <li class="exercise-group">
-        <span class="exercise-title">Exercise 9</span>
+        <div class="exercise-title">Exercise 9</div>
         <ul class="parts-list">
           <li><a href="ex9/1.html" target="_blank">Part 1</a></li>
           <li><a href="ex9/2.html" target="_blank">Part 2</a></li>
@@ -248,18 +229,18 @@
 
       <!-- Exercise 10 -->
       <li class="exercise-group">
-        <span class="exercise-title">Exercise 10</span>
+        <div class="exercise-title">Exercise 10</div>
         <ul class="parts-list">
           <li><a href="ex10/1.html" target="_blank">Part 1</a></li>
           <li><a href="ex10/2.html" target="_blank">Part 2</a></li>
           <li><a href="ex10/3.html" target="_blank">Part 3</a></li>
-          <li><a href="ex10/order.html" target="_blank">Order</a></li>
+          <li><a href="ex10/order.html" target="_blank">Order Form</a></li>
         </ul>
       </li>
 
       <!-- Exercise 11 -->
       <li class="exercise-group">
-        <span class="exercise-title">Exercise 11</span>
+        <div class="exercise-title">Exercise 11</div>
         <ul class="parts-list">
           <li><a href="ex11/1.html" target="_blank">Part 1</a></li>
           <li><a href="ex11/2.html" target="_blank">Part 2</a></li>
@@ -269,64 +250,84 @@
 
       <!-- Exercise 12 -->
       <li class="exercise-group">
-        <span class="exercise-title">Exercise 12</span>
+        <div class="exercise-title">Exercise 12</div>
         <ul class="parts-list">
           <li><a href="ex12/1.html" target="_blank">Part 1</a></li>
-          <li><a href="ex12/2.html" target="_blank">Part 2</a></li>
+          <li><a href="ex12/3.htm" target="_blank">Part 2</a></li>
           <li><a href="ex12/3.htm" target="_blank">Part 3</a></li>
           <li><a href="ex12/4.htm" target="_blank">Part 4</a></li>
           <li><a href="ex12/5.html" target="_blank">Part 5</a></li>
         </ul>
       </li>
 
-      <!-- Exercise 13-15 (React) -->
+      <!-- React Exercises -->
       <li class="exercise-group">
-        <span class="exercise-title">Exercise 13 (React)</span>
+        <div class="exercise-title">Exercise 13 (React)</div>
         <ul class="parts-list">
-          <li><a href="ex13/13/src/App.jsx" target="_blank">App.jsx</a></li>
-          <li><a href="ex13/13/src/App.css" target="_blank">App.css</a></li>
-        </ul>
-      </li>
-      <li class="exercise-group">
-        <span class="exercise-title">Exercise 14 (React)</span>
-        <ul class="parts-list">
-          <li><a href="ex14/14/src/App.jsx" target="_blank">App.jsx</a></li>
-          <li><a href="ex14/14/src/App.css" target="_blank">App.css</a></li>
-        </ul>
-      </li>
-      <li class="exercise-group">
-        <span class="exercise-title">Exercise 15 (React)</span>
-        <ul class="parts-list">
-          <li><a href="ex15/1/1/src/App.jsx" target="_blank">App.jsx</a></li>
-          <li><a href="ex15/1/1/src/App.css" target="_blank">App.css</a></li>
           <li>
-            <a href="ex15/1/ex15.pdf" target="_blank" download="ex15.pdf">(PDF)</a>
+            <a href="ex13/13/src/App.jsx" target="_blank">App Component</a>
+          </li>
+          <li><a href="ex13/13/src/App.css" target="_blank">Stylesheet</a></li>
+        </ul>
+      </li>
+
+      <li class="exercise-group">
+        <div class="exercise-title">Exercise 14 (React)</div>
+        <ul class="parts-list">
+          <li>
+            <a href="ex14/14/src/App.jsx" target="_blank">App Component</a>
+          </li>
+          <li><a href="ex14/14/src/App.css" target="_blank">Stylesheet</a></li>
+        </ul>
+      </li>
+
+      <li class="exercise-group">
+        <div class="exercise-title">Exercise 15 (React)</div>
+        <ul class="parts-list">
+          <li>
+            <a href="ex15/1/1/src/App.jsx" target="_blank">App Component</a>
+          </li>
+          <li><a href="ex15/1/1/src/App.css" target="_blank">Stylesheet</a></li>
+          <li>
+            <a href="ex15/1/ex15.pdf" target="_blank" download>PDF Document</a>
           </li>
         </ul>
       </li>
     </ul>
 
     <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        const exerciseGroups = document.querySelectorAll(".exercise-group");
+      document.addEventListener("DOMContentLoaded", () => {
+        const groups = document.querySelectorAll(".exercise-group");
 
-        exerciseGroups.forEach((group) => {
-          group.addEventListener("click", function (e) {
-            // Don't toggle if clicking on a link
-            if (e.target.tagName !== "A") {
-              this.classList.toggle("active");
+        groups.forEach((group) => {
+          const list = group.querySelector(".parts-list");
 
-              // Apply staggered animations to child items when expanded
-              if (this.classList.contains("active")) {
-                const items = this.querySelectorAll(".parts-list li");
-                items.forEach((item, index) => {
-                  item.style.transitionDelay = 0.05 * index + "s";
-                });
-              }
-
-              e.stopPropagation();
+          // Click handler for mobile and persistent state
+          group.addEventListener("click", (e) => {
+            if (!e.target.closest("a")) {
+              group.classList.toggle("active");
+              list.style.maxHeight = group.classList.contains("active")
+                ? `${list.scrollHeight}px`
+                : "0";
             }
           });
+
+          // Touch devices detection
+          const isTouchDevice = "ontouchstart" in window;
+          if (!isTouchDevice) {
+            // Desktop hover logic
+            group.addEventListener("mouseenter", () => {
+              if (!group.classList.contains("active")) {
+                list.style.maxHeight = "400px";
+              }
+            });
+
+            group.addEventListener("mouseleave", () => {
+              if (!group.classList.contains("active")) {
+                list.style.maxHeight = "0";
+              }
+            });
+          }
         });
       });
     </script>
