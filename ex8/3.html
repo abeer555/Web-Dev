@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <style>
+            body {
+                text-align: center;
+            }
+        </style>
+        <script>
+            function checkStudent() {
+                let isStudent = confirm("Are you a student?");
+                
+                if (isStudent) {
+                    let regNo = prompt("Please enter your registration number:");
+                    if (regNo === null || regNo.trim() === "") {
+                        alert("Registration number is required!");
+                    } else {
+                        alert("Welcome, student with registration number: " + regNo);
+                    }
+                } else {
+                    alert("This service is only for students.");
+                }
+            }
+        </script>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>23BCE1599 Abeer Gupta</title>
+    </head>
+    <body>
+        <h1>Student Verification</h1>
+        <input
+            type="button"
+            value="Verify Student"
+            style="background-color: red"
+            onclick="checkStudent()"
+        />
+    </body>
+</html>

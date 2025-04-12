@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Space - Abeer Gupta - 23BCE1599</title>
+    <style>
+      body {
+        font-family: sans-serif;
+        padding: 20px;
+      }
+      article {
+        border: 1px solid #ccc;
+        padding: 15px;
+        margin-top: 15px;
+      }
+      li {
+        margin-bottom: 8px;
+      }
+      /* Make image responsive if needed, but keep original size for mapping */
+      img {
+        max-width: 100%;
+        height: auto;
+        display: block; /* Helps center if margin auto is used */
+        margin: 10px auto; /* Center the image */
+        /* For accurate mapping, it's often better to fix the size if possible */
+        /* Example fixed size - adjust to your actual image */
+        /* width: 300px; */
+        /* height: 400px; */
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Welcome to My Space</h1>
+    <h2>Abeer Gupta - 23BCE1599</h2>
+
+    <!-- Replace 'my_image.jpg' with your image file -->
+    <!-- Adjust width/height if needed for accurate mapping -->
+    <img
+      src="my_image.jpg"
+      alt="A picture of Abeer Gupta"
+      usemap="#myImageMap"
+    />
+
+    <map name="myImageMap">
+      <!-- Note: Coordinates below are ESTIMATES. Replace with accurate values. -->
+      <!-- Spot a portion of your face -->
+      <area
+        shape="rect"
+        coords="100,50,200,150"
+        href="#"
+        alt="My Face"
+        title="Face Area"
+      />
+      <!-- Area for signature - could link somewhere or just be an area -->
+      <!-- Assuming signature is visually in the bottom right corner -->
+      <area
+        shape="rect"
+        coords="200,350,290,390"
+        href="#"
+        alt="My Signature"
+        title="Signature Area"
+      />
+    </map>
+
+    <article>
+      <h3>About Me</h3>
+      <ul>
+        <li>
+          I am currently studying B.Tech at VIT, exploring the world of Web
+          Programming.
+        </li>
+        <li>
+          In my free time, I enjoy [Your Hobby 1] and [Your Hobby 2], always
+          eager to learn new things.
+        </li>
+      </ul>
+    </article>
+
+    <hr />
+    <a href="1.html">Back to Solar System</a>
+  </body>
+</html>

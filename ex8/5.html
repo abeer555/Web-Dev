@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <style>
+      body {
+        text-align: center;
+      }
+    </style>
+    <script>
+      function checkStudent() {
+        let name = prompt("Please enter your name:");
+        if (name === null || name.trim() === "") {
+          alert("Name is required!");
+          return;
+        }
+
+        let regNo = prompt("Please enter your registration number:");
+        if (regNo === null || regNo.trim() === "") {
+          alert("Registration number is required!");
+          return;
+        }
+        let result = document.createElement("div");
+        result.innerHTML = `<br><b style="color:red">${name}</b><br><br><b style="border: 6px solid red;">${regNo}</b>`;
+        document.body.appendChild(result);
+        // alert("Welcome, " + name + "\nRegistration Number: " + regNo);
+      }
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>23BCE1599 Abeer Gupta</title>
+  </head>
+  <body>
+    <h1>Student Information</h1>
+    <input
+      type="button"
+      value="Enter Details"
+      style="background-color: red"
+      onclick="checkStudent()"
+    />
+  </body>
+</html>

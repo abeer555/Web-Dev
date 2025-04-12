@@ -1,0 +1,203 @@
+body {
+  font-family: sans-serif;
+  padding: 15px;
+  background-color: whitesmoke;
+  color: black;
+}
+
+.App {
+  max-width: 700px;
+  margin: 0 auto;
+  background-color: white;
+  padding: 20px;
+  border: 1px solid lightgray;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.App > h1 {
+  text-align: center;
+  color: navy;
+  margin-bottom: 25px;
+  border-bottom: 2px solid lightblue;
+  padding-bottom: 10px;
+}
+
+hr {
+  margin: 25px 0;
+  border: 0;
+  border-top: 1px solid lightgray;
+}
+
+h3 {
+  color: darkslategray;
+  margin-bottom: 15px;
+}
+
+/* --- Part 1 Styles --- */
+.image-section {
+  padding: 10px;
+  border: 1px dashed gray;
+  margin-bottom: 15px;
+  background-color: ghostwhite;
+}
+.image-section p {
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+.display-image {
+  max-width: 200px; /* Limit image size */
+  height: auto;
+  border: 1px solid black;
+  display: block; /* Prevent extra space below */
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+/* --- Part 2 Styles --- */
+.form-section {
+  padding: 15px;
+  border: 1px solid lightblue;
+  border-radius: 4px;
+  background-color: aliceblue;
+}
+
+.form-section h3 {
+   text-align: center;
+   margin-bottom: 20px;
+   font-family: serif; /* Match image style */
+   font-size: 1.4em;
+}
+
+.login-form .form-row {
+  margin-bottom: 12px;
+  display: flex; /* Align label and input */
+  align-items: center;
+}
+
+.login-form label {
+  display: inline-block;
+  width: 130px; /* Fixed width for labels */
+  margin-right: 10px;
+  text-align: right;
+}
+
+.login-form input[type="text"],
+.login-form input[type="password"],
+.login-form select {
+  padding: 6px;
+  border: 1px solid gray;
+  flex-grow: 1; /* Allow input to fill space */
+  box-sizing: border-box; /* Include padding/border in width */
+}
+
+.form-fieldset {
+  border: 1px solid lightgray;
+  padding: 10px 15px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.form-fieldset legend {
+   font-size: 0.9em;
+   font-weight: bold;
+   padding: 0 5px;
+}
+
+.radio-group, .checkbox-group {
+  margin-bottom: 5px;
+  display: flex;
+  align-items: center;
+}
+
+.radio-group label, .checkbox-group label {
+  width: auto; /* Override fixed width */
+  margin-left: 5px;
+  margin-right: 15px;
+  text-align: left;
+  font-weight: normal;
+}
+
+.radio-group input[type="radio"],
+.checkbox-group input[type="checkbox"] {
+  margin: 0; /* Remove default margins */
+}
+
+.form-buttons {
+  text-align: center; /* Center buttons */
+  margin-top: 20px;
+}
+
+.form-buttons button {
+  padding: 8px 15px;
+  margin: 0 10px;
+  cursor: pointer;
+  border: 1px solid gray;
+  background-color: lightgray;
+  border-radius: 3px;
+}
+
+.form-buttons button:hover {
+  background-color: darkgray;
+}
+
+
+/* --- Part 3 Styles --- */
+.profile-page {
+  padding: 15px;
+  border: 1px solid mediumseagreen;
+  border-radius: 4px;
+  background-color: honeydew;
+}
+
+.profile-header {
+  display: flex;
+  align-items: flex-start; /* Align items to the top */
+  margin-bottom: 15px;
+  padding-bottom: 15px;
+  border-bottom: 1px dashed gray;
+}
+
+.profile-image {
+  width: 100px; /* Smaller profile image */
+  height: 100px;
+  border-radius: 50%; /* Circular image */
+  border: 2px solid darkgreen;
+  margin-right: 20px;
+  object-fit: cover; /* Crop image nicely */
+  flex-shrink: 0; /* Prevent image from shrinking */
+}
+
+.user-info h4 {
+  margin-top: 0;
+  margin-bottom: 8px;
+  color: darkgreen;
+}
+
+.user-info p {
+  margin: 4px 0;
+  font-size: 0.9em;
+  color: dimgray;
+}
+
+.user-posts h5 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  color: darkcyan;
+  border-bottom: 1px solid lightcyan;
+  padding-bottom: 3px;
+}
+
+.user-posts ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.user-posts li {
+  background-color: mintcream;
+  border: 1px solid lightcyan;
+  padding: 8px;
+  margin-bottom: 8px;
+  border-radius: 3px;
+  font-size: 0.95em;
+}

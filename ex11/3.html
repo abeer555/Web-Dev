@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>23BCE1599</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+      }
+      .error {
+        color: red;
+        font-size: 12px;
+      }
+    </style>
+  </head>
+  <body onload="displayTime()">
+    <h2>Test JavaScript Form Validation</h2>
+    <form id="myForm" onsubmit="return validateForm()">
+      <fieldset style="width: fit-content">
+        <p id="timeDisplay"></p>
+        Name* <input type="text" name="name" id="name" maxlength="15" />
+        <span class="error" id="nameError"></span><br /><br />
+        Address* <textarea name="address" id="address"></textarea>
+        <span class="error" id="addressError"></span><br /><br />
+        Zip Code* <input type="text" name="zipcode" id="zipcode" />
+        <span class="error" id="zipError"></span><br /><br />
+        Country*
+        <select name="country" id="country">
+          <option value="">Please select...</option>
+          <option value="USA">USA</option>
+          <option value="India">India</option>
+          <option value="UK">UK</option>
+        </select>
+        <span class="error" id="countryError"></span><br /><br />
+        Gender*<input type="radio" name="gender" value="Male" /> Male
+        <input type="radio" name="gender" value="Female" /> Female
+        <span class="error" id="genderError"></span><br /><br />
+        Preferences*
+        <input type="checkbox" name="preferences" value="Red" /> Red
+        <input type="checkbox" name="preferences" value="Green" /> Green
+        <input type="checkbox" name="preferences" value="Blue" /> Blue
+        <span class="error" id="preferencesError"></span><br /><br />
+        Phone* <input type="text" name="phone" id="phone" maxlength="10" />
+        <span class="error" id="phoneError"></span><br /><br />
+        Email* <input type="email" name="email" id="email" />
+        <span class="error" id="emailError"></span><br /><br />
+        Password (8-15 characters)*
+        <input type="password" name="password" id="password" />
+        <span class="error" id="passwordError"></span><br /><br />
+        Verify Password*
+        <input type="password" name="verifyPassword" id="verifyPassword" />
+        <span class="error" id="verifyPasswordError"></span><br /><br />
+        PAN Number* <input type="text" name="pan" id="pan" />
+        <span class="error" id="panError"></span><br /><br />
+        <button type="submit">SEND</button>
+        <button type="reset">CLEAR</button>
+      </fieldset>
+    </form>
+    <script src="form.js"></script>
+  </body>
+</html>

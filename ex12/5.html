@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>23BCE1599</title>
+<link rel="stylesheet" href="z-index.css">
+</head>
+<body>
+<h1>Dynamic z-index Manipulation</h1>
+<div class="container">
+<div id="box1" class="box red">Box 1</div>
+<div id="box2" class="box blue">Box 2</div>
+<div id="box3" class="box green">Box 3</div>
+</div>
+<div class="controls">
+<label for="element">Select Element:</label>
+<select id="element">
+<option value="box1">Box 1</option>
+<option value="box2">Box 2</option>
+<option value="box3">Box 3</option></select>
+<label for="zIndex">Set z-index:</label>
+<input type="number" id="zIndex" value="1" min="1" max="10">
+<button onclick="changeZIndex()">Change z-index</button>
+</div>
+<h2>Current z-index Values:</h2>
+<ul>
+<li>Box 1: <span id="z1">1</span></li>
+<li>Box 2: <span id="z2">2</span></li>
+<li>Box 3: <span id="z3">3</span></li>
+</ul>
+<script src="z-index.js"></script>
+</body>
+</html>

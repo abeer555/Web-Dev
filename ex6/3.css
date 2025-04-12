@@ -1,0 +1,68 @@
+/* External CSS file: calc.css */
+/* Using class and ID selector for table */
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: lightgray; /* Simple background */
+}
+
+#calculator {
+  border-collapse: collapse;
+  border: 2px solid black;
+  background-color: gray; /* Calculator body color */
+  box-shadow: 3px 3px 5px slategray;
+  width: 250px; /* Fixed width for calculator */
+}
+
+#calculator td {
+  padding: 5px; /* Spacing around buttons */
+}
+
+#calculator input#display {
+  width: calc(100% - 12px); /* Full width minus padding */
+  padding: 10px 5px;
+  font-size: 1.5em;
+  text-align: right;
+  border: 1px solid black;
+  margin-bottom: 5px;
+  background-color: lightcyan; /* Display background */
+  box-sizing: border-box; /* Include padding/border in width */
+}
+
+#calculator button {
+  width: 100%; /* Buttons fill cell width */
+  padding: 12px 5px;
+  font-size: 1.1em;
+  border: 1px solid dimgray;
+  cursor: pointer;
+  background-color: lightgray; /* Default button color */
+  color: black;
+}
+
+#calculator button.digit {
+  background-color: white;
+}
+
+#calculator button.operator {
+  background-color: orange;
+  color: white;
+}
+
+#calculator button.control {
+  background-color: red;
+  color: white;
+}
+#calculator button.equals {
+  background-color: dodgerblue;
+  color: white;
+}
+
+/* Use suitable property to change the color of the buttons when mouse over */
+#calculator button:hover {
+  background-color: yellow; /* Simple hover effect */
+  color: black; /* Ensure text is visible on hover */
+  opacity: 0.9; /* Slight visual feedback */
+}

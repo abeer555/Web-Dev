@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>23BCE1599 Abeer Gupta</title>
+    <style>
+      .seat-chart {
+        margin: 20px;
+        padding: 10px;
+        border: 1px solid #ccc;
+      }
+      .boarding-pass {
+        border: 2px solid #000;
+        padding: 10px;
+        margin: 10px;
+        width: 300px;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Airline Reservation System</h2>
+    <div>
+      <input
+        type="text"
+        id="passengerName"
+        placeholder="Enter passenger name"
+      />
+      <select id="seatClass">
+        <option value="1">First Class</option>
+        <option value="2">Economy</option>
+      </select>
+      <button onclick="assignSeat()">Book Seat</button>
+    </div>
+    <div class="seat-chart" id="seatDisplay"></div>
+    <div id="boardingPassContainer"></div>
+
+    <script>
+      const seats = new Array(10).fill(0); // 0 means empty, 1 means occupied
+
+      function assignSeat() {
+        const name = document.getElementById("passengerName").value;
+        if (!name) {
+          alert("Please enter passenger name");
+          return;
+        }
+
+        const seatClass = parseInt(document.getElementById("seatClass").value);
+        let seatNumber = -1;
+
+        if (seatClass === 1) {
+          // First class (seats 1-5)
+          for (let i = 0; i < 5; i++) {
+            if (seats[i] === 0) {
+              seatNumber = i + 1;
+              seats[i] = 1;
+              break;
+            }
+          }
+          if (seatNumber === -1) {
+            if (confirm("First class is full. Would you like economy class?")) {
+              assignEconomySeat(name);
+            }
+            return;
+          }
+        } else {
+          // Economy class (seats 6-10)
+          for (let i = 5; i < 10; i++) {
+            if (seats[i] === 0) {
+              seatNumber = i + 1;
+              seats[i] = 1;
+              break;
+            }
+          }
+          if (seatNumber === -1) {
+            if (confirm("Economy class is full. Would you like first class?")) {
+              assignFirstClassSeat(name);
+            }
+            return;
+          }
+        }
+
+        if (seatNumber !== -1) {
+          printBoardingPass(
+            name,
+            seatNumber,
+            seatClass === 1 ? "First Class" : "Economy"
+          );
+          updateSeatDisplay();
+        }
+      }
+
+      function assignEconomySeat(name) {
+        for (let i = 5; i < 10; i++) {
+          if (seats[i] === 0) {
+            seats[i] = 1;
+            printBoardingPass(name, i + 1, "Economy");
+            updateSeatDisplay();
+            return;
+          }
+        }
+        alert("Sorry, the plane is full");
+      }
+
+      function assignFirstClassSeat(name) {
+        for (let i = 0; i < 5; i++) {
+          if (seats[i] === 0) {
+            seats[i] = 1;
+            printBoardingPass(name, i + 1, "First Class");
+            updateSeatDisplay();
+            return;
+          }
+        }
+        alert("Sorry, the plane is full");
+      }
+
+      function printBoardingPass(name, seatNumber, className) {
+        const container = document.getElementById("boardingPassContainer");
+        const pass = document.createElement("div");
+        pass.className = "boarding-pass";
+        pass.innerHTML = `
+        <h3>Boarding Pass</h3>
+        <p>Passenger: ${name}</p>
+        <p>Seat Number: ${seatNumber}</p>
+        <p>Class: ${className}</p>
+      `;
+        container.appendChild(pass);
+      }
+
+      function updateSeatDisplay() {
+        const display = document.getElementById("seatDisplay");
+        display.innerHTML = "<h3>Seat Chart</h3>";
+        seats.forEach((seat, index) => {
+          display.innerHTML += `Seat ${index + 1}: ${
+            seat === 0 ? "Empty" : "Occupied"
+          }<br>`;
+        });
+      }
+
+      // Initial seat display
+      updateSeatDisplay();
+    </script>
+  </body>
+</html>

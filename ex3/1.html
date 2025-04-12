@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Note: Display your registration number in the title bar. -->
+    <title>Exercise 3 - 23BCE1599</title>
+    <style>
+        body { font-family: sans-serif; }
+        h1, h2 { text-align: center; }
+        /* Basic styling to center the image */
+        .image-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        /* Make image responsive if needed, but keep original size for mapping */
+        img {
+           max-width: 100%;
+           height: auto;
+           /* For accurate mapping, it's often better to fix the size if possible */
+           /* Example fixed size - adjust to your actual image */
+           /* width: 800px; */
+           /* height: 600px; */
+        }
+    </style>
+</head>
+<body>
+
+    <h1>HTML Image Mapping - Exercise 3</h1>
+    <h2>Solar System</h2>
+
+    <div class="image-container">
+        <!-- Replace 'solarsystem.jpg' with your image file -->
+        <!-- Adjust width/height if needed for accurate mapping -->
+        <img src="solarsystem.jpg" alt="Solar System with Planets" usemap="#solarSystemMap">
+    </div>
+
+    <map name="solarSystemMap">
+        <!-- Note: Coordinates below are ESTIMATES. Replace with accurate values. -->
+        <!-- Shape: rect coords="left, top, right, bottom" -->
+        <!-- Shape: circle coords="centerX, centerY, radius" -->
+
+        <!-- Sun -->
+        <area shape="circle" coords="150,380,100" href="sun_details.html" title="Ball of Fire" alt="Sun">
+        <!-- Mercury -->
+        <area shape="circle" coords="320,510,25" href="#" alt="Mercury">
+        <!-- Venus -->
+        <area shape="circle" coords="390,450,40" href="#" title="Morning Star" alt="Venus">
+        <!-- Earth -->
+        <area shape="circle" coords="400,540,45" href="earth_details.html" title="Blue planet" alt="Earth">
+         <!-- Mars -->
+        <area shape="circle" coords="480,400,35" href="#" alt="Mars">
+        <!-- Jupiter -->
+        <area shape="circle" coords="590,490,80" href="#" title="Largest planet" alt="Jupiter">
+        <!-- Saturn -->
+        <area shape="circle" coords="780,570,65" href="#" title="Ring Planet" alt="Saturn">
+        <!-- Uranus -->
+        <area shape="circle" coords="730,270,50" href="#" alt="Uranus">
+        <!-- Neptune -->
+        <area shape="circle" coords="850,330,45" href="#" alt="Neptune">
+        <!-- Pluto -->
+        <area shape="circle" coords="850,150,20" href="#" title="Dwarf Planet" alt="Pluto">
+
+        <!-- My Space Text -->
+        <!-- Coordinates need to cover the "My Space" text area -->
+        <area shape="rect" coords="40,50,200,100" href="my_space.html" title="Abeer Gupta - 23BCE1599" alt="My Space Link">
+    </map>
+
+</body>
+</html>

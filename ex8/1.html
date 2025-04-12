@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <style>
+            body {
+                text-align: center;
+            }
+        </style>
+        <script>
+            function checkAge() {
+                let age = prompt("Enter your age:");
+                age = parseInt(age);
+                
+        switch (v) {
+          case "-": {
+            alert("The result is " + (n1 - n2));
+            break;
+          }
+          case "+": {
+            alert("The result is " + (n1 + n2));
+            break;
+          }
+          case "/": {
+            alert("The result is " + n1 / n2);
+            break;
+          }
+          case "*": {
+            alert("The result is " + n1 * n2);
+            break;
+          }
+          default: {
+            alert("Invalid input");
+          }
+        }
+      }
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>23BCE1599 Abeer Gupta</title>
+  </head>
+  <body>
+    <h1>Basic Calculator</h1>
+    <input
+      placeholder="Enter number 1"
+      size="10"
+      style="height: 20px"
+      id="num1"
+    />      <input
+      placeholder="Enter number 1"
+      size="10"
+      style="height: 20px"
+      id="num2"
+    />
+    <br /><br />
+    <input
+      type="button"
+      value="Calculate"
+      style="background-color: red"
+      onclick="but()"
+    />
+  </body>
+</html>

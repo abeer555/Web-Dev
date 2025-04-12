@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>23BCE1599 Abeer Gupta</title>
+  <style>
+    table {
+      border-collapse: collapse;
+      width: 50%;
+      margin: 20px 0;
+    }
+    th, td {
+      border: 1px solid black;
+      padding: 8px;
+      text-align: center;
+    }
+    .hot { background-color: #ffcccc; }
+    .pleasant { background-color: #ccffcc; }
+    .cold { background-color: #cce6ff; }
+  </style>
+</head>
+<body>
+  <h2>New York Temperature Analysis</h2>
+  <div id="summary"></div>
+  <table id="tempTable">
+    <tr>
+      <th>Temperature (°F)</th>
+      <th>Category</th>
+    </tr>
+  </table>
+
+  <script>
+    const temperatures = [55,62,68,74,59,45,41,58,60,67,65,78,82,88,91,92,90,93,87,80,78,79,72,68,61,59,55,65];
+    let hotDays = 0;
+    let pleasantDays = 0;
+    let coldDays = 0;
+
+    const table = document.getElementById('tempTable');
+
+    temperatures.forEach(temp => {
+      let category;
+      if (temp >= 85) {
+        category = 'HOT';
+        hotDays++;
+        className = 'hot';
+      } else if (temp >= 60) {
+        category = 'PLEASANT';
+        pleasantDays++;
+        className = 'pleasant';
+      } else {
+        category = 'COLD';
+        coldDays++;
+        className = 'cold';
+      }
+
+      const row = table.insertRow(-1);
+      row.className = className;
+      row.insertCell(0).textContent = temp;
+      row.insertCell(1).textContent = category;
+    });
+
+    document.getElementById('summary').innerHTML = `
+      <p>Summary:</p>
+      <p>Hot Days (≥85°F): ${hotDays}</p>
+      <p>Pleasant Days (60-84°F): ${pleasantDays}</p>
+      <p>Cold Days (<60°F): ${coldDays}</p>
+    `;
+  </script>
+</body>
+</html>

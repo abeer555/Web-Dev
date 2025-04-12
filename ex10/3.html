@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Order Form</title>
+</head>
+<body>
+  <h1>Place Your Order</h1>
+  <form id="orderForm">
+    <label for="customerName">Name:</label>
+    <input type="text" id="customerName" name="customerName" required>
+    <br><br>
+
+    <label for="product">Product:</label>
+    <select id="product" name="product">
+      <option value="Widget">Widget</option>
+      <option value="Gadget">Gadget</option>
+      <option value="Doohickey">Doohickey</option>
+    </select>
+    <br><br>
+
+    <label for="quantity">Quantity:</label>
+    <input type="number" id="quantity" name="quantity" min="1" value="1" required>
+    <br><br>
+
+    <label for="address">Address:</label>
+    <br>
+    <textarea id="address" name="address" rows="4" cols="50" required></textarea>
+    <br><br>
+
+    <button type="submit">Submit Order</button>
+  </form>
+
+  <script>
+    document.getElementById('orderForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      // Retrieve form values
+      const customerName = document.getElementById('customerName').value;
+      const product = document.getElementById('product').value;
+      const quantity = document.getElementById('quantity').value;
+      const address = document.getElementById('address').value;
+
+      // Create query string with the form data
+      const queryParams = new URLSearchParams({
+        customerName, product, quantity, address
+      }).toString();
+
+      // Redirect to the receipt page with query parameters
+      window.location.href = "receipt.html?" + queryParams;
+    });
+  </script>
+</body>
+</html>

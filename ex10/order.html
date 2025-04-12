@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Abeer Gupta 23BCE1599</title>
+  </head>
+  <body
+    style="
+      font-family: Arial, sans-serif;
+      background-color: #dde5d1;
+      margin: 0;
+      padding: 20px;
+    "
+  >
+    <div
+      style="
+        max-width: 400px;
+        margin: 0 auto;
+        background: #8aa890;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+      "
+    >
+      <h1 style="text-align: center; font-size: 1.5em; color: #fff">
+        Grocery Order Form
+      </h1>
+      <form id="orderForm">
+        <div style="margin-bottom: 15px">
+          <label style="display: block; color: #fff; margin-bottom: 5px"
+            >Customer Name:</label
+          >
+          <input
+            type="text"
+            id="customerName"
+            style="
+              width: calc(100% - 20px);
+              padding: 8px;
+              margin-left: 10px;
+              border: none;
+              border-radius: 5px;
+            "
+            required
+          />
+        </div>
+        <div style="margin-bottom: 15px">
+          <label style="display: block; color: #fff; margin-bottom: 5px"
+            >Phone Number:</label
+          >
+          <input
+            type="text"
+            id="phoneNumber"
+            style="
+              width: calc(100% - 20px);
+              padding: 8px;
+              margin-left: 10px;
+              border: none;
+              border-radius: 5px;
+            "
+            required
+          />
+        </div>
+        <div style="margin-bottom: 15px">
+          <label style="display: block; color: #fff; margin-bottom: 5px"
+            >Email:</label
+          >
+          <input
+            type="email"
+            id="email"
+            style="
+              width: calc(100% - 20px);
+              padding: 8px;
+              margin-left: 10px;
+              border: none;
+              border-radius: 5px;
+            "
+            required
+          />
+        </div>
+        <div style="margin-top: 20px">
+          <h3 style="color: #fff">Products</h3>
+          <div style="display: flex; align-items: center; margin-bottom: 15px">
+            <img
+              src="apple.png"
+              alt="Apple"
+              style="
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                margin-right: 10px;
+              "
+            />
+            <label style="color: #fff">Apple ($10/kg)</label>
+            <input
+              type="number"
+              id="appleQty"
+              min="0"
+              placeholder="kg"
+              style="width: 60px; margin-left: auto; margin-right: 10px"
+            />
+          </div>
+          <div style="display: flex; align-items: center; margin-bottom: 15px">
+            <img
+              src="banana.png"
+              alt="Banana"
+              style="
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                margin-right: 10px;
+              "
+            />
+            <label style="color: #fff">Banana ($5/kg)</label>
+            <input
+              type="number"
+              id="bananaQty"
+              min="0"
+              placeholder="kg"
+              style="width: 60px; margin-left: auto; margin-right: 10px"
+            />
+          </div>
+          <div style="display: flex; align-items: center; margin-bottom: 15px">
+            <img
+              src="avacado.png"
+              alt="Avocado"
+              style="
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                margin-right: 10px;
+              "
+            />
+            <label style="color: #fff">Avocado ($7/kg)</label>
+            <input
+              type="number"
+              id="avocadoQty"
+              min="0"
+              placeholder="kg"
+              style="width: 60px; margin-left: auto; margin-right: 10px"
+            />
+          </div>
+        </div>
+        <button
+          type="button"
+          onclick="submitOrder()"
+          style="
+            width: 100%;
+            padding: 10px;
+            background-color: #a47c45;
+            border: none;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+          "
+        >
+          SUBMIT
+        </button>
+      </form>
+    </div>
+
+    <script>
+      function submitOrder() {
+        const name = document.getElementById("customerName").value;
+        const phone = document.getElementById("phoneNumber").value;
+        const email = document.getElementById("email").value;
+        const appleQty = document.getElementById("appleQty").value || 0;
+        const bananaQty = document.getElementById("bananaQty").value || 0;
+        const avocadoQty = document.getElementById("avocadoQty").value || 0;
+
+        const order = {
+          name,
+          phone,
+          email,
+          products: [
+            { name: "Apple", price: 10, qty: appleQty },
+            { name: "Banana", price: 5, qty: bananaQty },
+            { name: "Avocado", price: 7, qty: avocadoQty },
+          ],
+        };
+
+        localStorage.setItem("order", JSON.stringify(order));
+        generateReceipt(order);
+      }
+
+      function generateReceipt(order) {
+        document.body.innerHTML = `
+        <div style="max-width: 400px; margin: 0 auto; background: #8aa890; padding: 20px; border-radius: 10px; box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);">
+          <h1 style="text-align: center; color: #fff;">Order Receipt</h1>
+          <p><strong>Name:</strong> ${order.name}</p>
+          <p><strong>Phone:</strong> ${order.phone}</p>
+          <p><strong>Email:</strong> ${order.email}</p>
+          <h3 style="color: #fff;">Products</h3>
+          ${order.products
+            .map((product) =>
+              product.qty > 0
+                ? `
+            <div>${product.qty} kg of ${product.name} - $${
+                    product.qty * product.price
+                  }</div>
+          `
+                : ""
+            )
+            .join("")}
+          <h3 style="color: #fff;">Total: $${order.products.reduce(
+            (total, product) => total + product.qty * product.price,
+            0
+          )}</h3>
+        </div>
+      `;
+      }
+    </script>
+  </body>
+</html>

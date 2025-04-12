@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Main Content - Resume</title>
+    <style>
+        body { font-family: sans-serif; padding: 20px; line-height: 1.6; }
+        header, section, footer { margin-bottom: 25px; padding-bottom: 15px; border-bottom: 1px solid #eee; }
+        header h1 { margin-bottom: 0; }
+        header p { margin-top: 5px; font-style: italic; color: #555; }
+        h2 { color: #0056b3; margin-top: 0; border-bottom: 2px solid #e0e0e0; padding-bottom: 5px; }
+        h3 { margin-bottom: 5px; }
+        article { margin-left: 15px; margin-bottom: 15px; border-left: 3px solid #0056b3; padding-left: 10px;}
+        figure { text-align: center; margin: 10px 0; }
+        figcaption { font-size: 0.9em; font-style: italic; color: #666; margin-top: 5px; }
+        figure img { max-width: 100px; border-radius: 50%; border: 2px solid #ccc; }
+        progress { width: 100%; height: 15px; margin-bottom: 5px;}
+        meter { width: 100%; height: 15px; }
+        summary { cursor: pointer; font-weight: bold; color: #0056b3; }
+        details { margin-top: 10px; background-color: #f9f9f9; border: 1px solid #ddd; padding: 10px; border-radius: 4px;}
+        .skills-list p { margin: 5px 0; }
+        #media iframe { width: 100%; min-height: 300px; border: 1px solid #ccc; }
+        #media canvas { border: 1px solid black; display: block; margin: 10px 0; }
+        #media audio, #media video { margin-bottom: 15px; max-width: 100%; }
+    </style>
+</head>
+<body>
+
+    <!-- 1. <header> -->
+    <header style="text-align: center;">
+        <h1>Abeer Gupta</h1>
+        <p>Web Developer | Problem Solver | Learner</p>
+        <p>Creating efficient and user-friendly web solutions.</p>
+        <!-- 6. <figure> -->
+        <figure>
+            <img src="https://via.placeholder.com/100/0056b3/FFFFFF?text=AG" alt="Profile Photo">
+            <figcaption>Abeer Gupta - Web Developer</figcaption>
+        </figure>
+    </header>
+
+    <!-- 3. <section> : About Me -->
+    <section id="about">
+        <h2>About Me</h2>
+        <p>A dedicated and motivated student learning web programming, focusing on building scalable and maintainable web applications using modern technologies.</p>
+    </section>
+
+    <!-- 3. <section> : Education -->
+    <section id="education">
+        <h2>Education</h2>
+        <!-- 4. <article> -->
+        <article>
+            <h3>Bachelor of Technology in Computer Science</h3>
+            <p>Vellore Institute of Technology (VIT), Vellore</p>
+            <p>Expected Graduation: 2027</p>
+            <!-- 8. <meter> (Example: Representing progress through degree) -->
+            <label for="degree_progress">Degree Progress:</label>
+            <meter id="degree_progress" value="60" min="0" max="100" low="30" high="80" optimum="100">60%</meter>
+        </article>
+    </section>
+
+    <!-- 3. <section> : Experience -->
+    <section id="experience">
+        <h2>Experience</h2>
+        <!-- 4. <article> -->
+        <article>
+            <h3>Web Development Intern (Placeholder)</h3>
+            <p>Example Corp | Summer 2025 (Future)</p>
+            <ul>
+                <li>Assisted senior developers in front-end tasks.</li>
+                <li>Learned about version control (Git) and project workflows.</li>
+            </ul>
+        </article>
+        <article>
+            <h3>Academic Project: Online Bookstore</h3>
+            <p>Led front-end development using HTML, CSS, and JavaScript.</p>
+        </article>
+    </section>
+
+    <!-- 3. <section> : Skills -->
+    <section id="skills" class="skills-list">
+        <h2>Technical Skills</h2>
+         <!-- 7. <progress> -->
+        <p>HTML5:</p>
+        <progress value="85" max="100"></progress>
+        <p>CSS3:</p>
+        <progress value="80" max="100"></progress>
+        <p>JavaScript:</p>
+        <progress value="70" max="100"></progress>
+        <p>Python:</p>
+        <progress value="60" max="100"></progress>
+    </section>
+
+    <!-- 9. <details> and <summary> -->
+     <section id="additional">
+        <h2>Additional Information</h2>
+        <details>
+            <summary>Hobbies & Interests</summary>
+            <ul>
+                <li>Coding Challenges</li>
+                <li>Reading Tech Blogs</li>
+                <li>Playing Chess</li>
+            </ul>
+        </details>
+         <details>
+            <summary>Future Goals</summary>
+            <p>To contribute to open-source projects and specialize in full-stack development.</p>
+        </details>
+    </section>
+
+    <!-- Section for Part B Media Elements -->
+    <section id="media">
+        <h2>Media Elements</h2>
+
+        <h3>Audio</h3>
+        <!-- Replace src with an actual audio file path/URL -->
+        <audio controls>
+            <source src="placeholder_audio.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+
+        <h3>Video</h3>
+         <!-- Replace src with an actual video file path/URL -->
+        <video controls width="320" height="240">
+             <source src="placeholder_video.mp4" type="video/mp4">
+             Your browser does not support the video tag.
+        </video>
+
+        <h3>SVG (via iframe)</h3>
+        <p>My House using SVG:</p>
+        <iframe src="house.svg" title="My House SVG"></iframe>
+
+        <h3>Canvas</h3>
+        <p>Simple Canvas Drawing:</p>
+        <canvas id="myCanvas" width="200" height="100"></canvas>
+
+    </section>
+
+    <!-- 10. <footer> (within main content - optional, as main footer frame exists) -->
+    <!-- Removed footer here as it's redundant with the main footer frame -->
+
+    <script>
+        // Simple Canvas Drawing for Part B
+        const canvas = document.getElementById('myCanvas');
+        if (canvas.getContext) {
+            const ctx = canvas.getContext('2d');
+            // Draw a yellow circle as shown in the example
+            ctx.fillStyle = 'yellow';
+            ctx.beginPath();
+            ctx.arc(100, 50, 40, 0, 2 * Math.PI); // x, y, radius, startAngle, endAngle
+            ctx.fill();
+        }
+    </script>
+
+</body>
+</html>

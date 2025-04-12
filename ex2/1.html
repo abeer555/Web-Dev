@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Note: Display your registration number in the title bar. -->
+    <title>Exercise 2 - 23BCE1599</title>
+    <style>
+        body {
+            font-family: sans-serif;
+        }
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            padding: 5px;
+            text-align: center;
+        }
+        th {
+            background-color: lightgray;
+        }
+        .nested-table {
+            padding: 15px;
+            margin: 5px; /* Add margin for visual separation */
+            border: 2px solid black; /* Add border for visual separation */
+            width: fit-content; /* Adjust width to content */
+            height: fit-content; /* Adjust height to content */
+        }
+        .blue-table { background-color: blue; }
+        .yellow-table { background-color: yellow; }
+        .red-table { background-color: red; }
+        .white-table { background-color: white; }
+        .green-table { background-color: green; }
+
+        #testTable, #expensesIncomeTable {
+            display: none; /* Initially hidden */
+            margin-top: 20px; /* Add space when shown */
+        }
+        #expensesLink {
+            color: blue;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+        /* Styles for lists */
+        dl dt {
+            font-weight: bold;
+        }
+        dl dd {
+            margin-left: 20px;
+            margin-bottom: 10px;
+        }
+        .web-dev-list {
+            margin-left: 20px;
+        }
+        .web-dev-list ol {
+             margin-left: 20px;
+        }
+        .html-home-link {
+            display: block;
+            margin-top: 30px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>HTML – Links, Tables and Lists - Exercise 2</h1>
+
+    <hr>
+    <h2>1) Time Table</h2>
+    <table>
+        <thead>
+            <tr>
+                <th rowspan="2">Hours</th>
+                <th colspan="5">Time Table</th>
+            </tr>
+            <tr>
+                <th>Mon</th>
+                <th>Tue</th>
+                <th>Wed</th>
+                <th>Thu</th>
+                <th>Fri</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Science</td>
+                <td>Maths</td>
+                <td>Science</td>
+                <td>Maths</td>
+                <td>Arts</td>
+            </tr>
+            <tr>
+                <td>Social</td>
+                <td>History</td>
+                <td>English</td>
+                <td>Social</td>
+                <td>Sports</td>
+            </tr>
+            <tr>
+                <th colspan="5">Lunch</th>
+            </tr>
+             <tr>
+                <td>Science</td>
+                <td>Maths</td>
+                <td>Science</td>
+                <td>Maths</td>
+                <td rowspan="2">Project</td>
+            </tr>
+             <tr>
+                <td>Social</td>
+                <td>History</td>
+                <td>English</td>
+                <td>Social</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <hr>
+    <h2>2) Nested Tables & 3) Click Trigger</h2>
+    <table class="nested-table blue-table">
+        <tr>
+            <td>
+                <table class="nested-table yellow-table">
+                    <tr>
+                        <td>
+                            <table class="nested-table red-table">
+                                <tr>
+                                    <td>
+                                        <table class="nested-table white-table">
+                                            <tr>
+                                                <td>
+                                                    <table class="nested-table green-table">
+                                                        <tr>
+                                                            <td>
+                                                                <button id="clickMeButton">Click Me</button>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+
+    <!-- 3) Test Table (Initially Hidden) -->
+    <table id="testTable">
+        <caption>A test table with merged cells</caption>
+        <thead>
+            <tr>
+                <!-- Adding id to Expenses cell to make it clickable -->
+                <th id="expensesLink">Expenses</th>
+                <th colspan="2">Average</th>
+                <th>Red eyes</th>
+            </tr>
+             <tr>
+                <th></th> <!-- Empty cell under Expenses -->
+                <th>height</th>
+                <th>weight</th>
+                <th></th> <!-- Empty cell under Red eyes -->
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Males</td>
+                <td>1.9</td>
+                <td>0.003</td>
+                <td>40%</td>
+            </tr>
+            <tr>
+                <td>Females</td>
+                <td>1.7</td>
+                <td>0.002</td>
+                <td>43%</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- 4) Expenses/Income Table (Initially Hidden) -->
+    <table id="expensesIncomeTable">
+         <thead>
+            <tr>
+                <th rowspan="2">Year</th>
+                <th rowspan="2">Quarter</th>
+                <th colspan="2">Expenses</th>
+                <th colspan="2">Income</th>
+            </tr>
+            <tr>
+                <th>Quetta</th>
+                <th>Dubai</th>
+                <th>Quetta</th>
+                <th>Dubai</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td rowspan="4">2021</td>
+                <td>1</td>
+                <td>1,900</td>
+                <td>8,650</td>
+                <td>9,000</td>
+                <td>7,780</td>
+            </tr>
+             <tr>
+                <td>2</td>
+                <td>2,230</td>
+                <td>8,650</td>
+                <td>8,500</td>
+                <td>8,670</td>
+            </tr>
+             <tr>
+                <td>3</td>
+                <td>4,000</td>
+                <td>8,650</td>
+                <td>9,900</td>
+                <td>9,870</td>
+            </tr>
+             <tr>
+                <td>4</td>
+                <td>2,200</td>
+                <td>8,650</td>
+                <td>9,800</td>
+                <td>9,900</td>
+            </tr>
+            <tr>
+                <td rowspan="4">2022</td>
+                <td>1</td>
+                <td>7,780</td>
+                <td>8,650</td>
+                <td>7,780</td>
+                <td>9,000</td>
+            </tr>
+             <tr>
+                <td>2</td>
+                <td>8,670</td>
+                <td>8,650</td>
+                <td>8,670</td>
+                <td>8,500</td>
+            </tr>
+             <tr>
+                <td>3</td>
+                <td>9,870</td>
+                <td>8,650</td>
+                <td>9,870</td>
+                <td>9,900</td>
+            </tr>
+             <tr>
+                <td>4</td>
+                <td>9,900</td>
+                <td>8,650</td>
+                <td>9,900</td>
+                <td>9,800</td>
+            </tr>
+            <tr>
+                <td>2013</td>
+                <td>****</td>
+                <td>****</td>
+                <td>****</td>
+                <td>****</td>
+                <td>****</td>
+             </tr>
+        </tbody>
+    </table>
+
+    <hr>
+    <h2>5) Markup Languages and Web Development Lists</h2>
+
+    <h3>Markup Languages</h3>
+    <dl>
+        <dt>SGML</dt>
+        <dd>The Standard Generalized Markup Language</dd>
+        <dt>HTML</dt>
+        <dd>The Hypertext Markup Language</dd>
+        <dt>XML</dt>
+        <dd>The Extensible Markup Language</dd>
+    </dl>
+
+    <h3>Learning Web Development</h3>
+    <ol type="I" class="web-dev-list">
+        <li>Background skills
+            <ol type="A">
+                <li>Unix Commands</li>
+                <li>Vim Text Editor</li>
+            </ol>
+        </li>
+        <li>HTML
+            <ol type="A">
+                <li>Minimal Page</li>
+                <li>Headings</li>
+                <li>Tags</li>
+                <li>Lists
+                    <ol type="i">
+                        <li>Unordered</li>
+                        <li>Ordered</li>
+                        <li>Definition</li>
+                        <li>Nested</li>
+                    </ol>
+                </li>
+                <li>Links
+                     <ol type="i">
+                        <li>Absolute</li>
+                        <li>Relative</li>
+                    </ol>
+                </li>
+                <li>Images</li>
+            </ol>
+        </li>
+        <li>CSS
+             <ol type="A">
+                <li>Anatomy</li>
+                <li>Basic Selectors
+                    <ol type="i">
+                        <li>Element</li>
+                        <li>Class</li>
+                        <li>ID</li>
+                        <li>Group</li>
+                    </ol>
+                </li>
+                <li>The DOM</li>
+                <li>Advanced Selectors</li>
+                <li>Box Model</li>
+            </ol>
+        </li>
+         <li>Programming
+             <ol type="A">
+                <li>Python</li>
+                <li>JavaScript</li>
+            </ol>
+        </li>
+         <li>Database
+             <ol type="A">
+                <li>Flat File</li>
+                <li>Relational</li>
+            </ol>
+        </li>
+    </ol>
+
+    <a href="#" class="html-home-link">HTML HOME</a>
+
+
+    <script>
+        // Ensure the DOM is fully loaded before running scripts
+        document.addEventListener('DOMContentLoaded', function() {
+
+            // --- Logic for Part 3 ---
+            const clickMeButton = document.getElementById('clickMeButton');
+            const testTable = document.getElementById('testTable');
+
+            clickMeButton.addEventListener('click', function() {
+                // Use register number (23BCE1599) and first three letters of first name (Abe)
+                // The example #20BCE1001JAY is not a valid hex code.
+                // Let's derive a valid hex code from the registration number: #CE1599
+                const regNumPart = "CE1599"; // Last 6 digits of 23BCE1599
+                const derivedColor = "#" + regNumPart; // Create a valid hex color
+
+                // Apply the background color
+                testTable.style.backgroundColor = derivedColor;
+
+                // Make the table visible
+                testTable.style.display = 'table'; // Use 'table' for proper table rendering
+            });
+
+            // --- Logic for Part 4 ---
+            const expensesLink = document.getElementById('expensesLink');
+            const expensesIncomeTable = document.getElementById('expensesIncomeTable');
+
+             // Check if expensesLink exists before adding listener
+            if(expensesLink) {
+                 expensesLink.addEventListener('click', function() {
+                    // Make the expenses/income table visible
+                    expensesIncomeTable.style.display = 'table'; // Use 'table'
+                 });
+            } else {
+                console.error("Element with ID 'expensesLink' not found.");
+            }
+
+        });
+    </script>
+
+</body>
+</html>

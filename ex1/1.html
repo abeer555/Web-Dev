@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Abeer Gupta</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 20px;
+        background-image: url("https://source.unsplash.com/random/1600x900/?nature");
+        background-attachment: fixed;
+        background-size: cover;
+      }
+
+      .container {
+        max-width: 800px;
+        margin: 0 auto;
+        background-color: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px gray;
+      }
+
+      .header {
+        text-align: center;
+        margin-bottom: 30px;
+      }
+
+      .name {
+        color: blue;
+        font-family: Verdana, sans-serif;
+        font-size: 28px;
+      }
+
+      .reg-no {
+        margin-top: 5px;
+        font-size: 16px;
+      }
+
+      .alphabet-display {
+        display: flex;
+        justify-content: space-around;
+        margin: 20px 0;
+      }
+
+      .a {
+        font-size: 12px;
+        color: red;
+        font-family: Arial;
+      }
+      .b {
+        font-size: 16px;
+        color: green;
+        font-family: Times New Roman;
+      }
+      .c {
+        font-size: 20px;
+        color: blue;
+        font-family: Courier;
+      }
+      .d {
+        font-size: 24px;
+        color: purple;
+        font-family: Verdana;
+      }
+      .e {
+        font-size: 28px;
+        color: orange;
+        font-family: Georgia;
+      }
+      .f {
+        font-size: 32px;
+        color: brown;
+        font-family: Impact;
+      }
+
+      .name-formats {
+        margin: 20px 0;
+      }
+
+      .ambition {
+        background-color: yellow;
+        padding: 10px;
+        margin-bottom: 15px;
+      }
+
+      .hobbies {
+        font-weight: bold;
+        font-style: italic;
+        padding: 10px;
+      }
+
+      .equations {
+        margin: 20px 0;
+        background-color: lightgray;
+        padding: 10px;
+        border-radius: 5px;
+      }
+
+      .c-program {
+        background-color: black;
+        color: white;
+        padding: 15px;
+        border-radius: 5px;
+        font-family: monospace;
+        margin: 20px 0;
+      }
+
+      .passport-img {
+        float: right;
+        width: 120px;
+        height: 150px;
+        border: 2px solid gray;
+        margin-left: 15px;
+      }
+
+      .tag-examples {
+        margin: 20px 0;
+      }
+
+      .meter-container,
+      .progress-container {
+        margin: 10px 0;
+      }
+
+      footer {
+        margin-top: 30px;
+        text-align: center;
+        border-top: 1px solid lightgray;
+        padding-top: 15px;
+      }
+
+      #top-btn {
+        display: none;
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        padding: 10px 15px;
+        background-color: blue;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      .marquee-container {
+        background-color: lightblue;
+        padding: 10px;
+        margin: 15px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header class="header">
+        <h1 class="name">Abeer Gupta</h1>
+        <p class="reg-no">Welcome to my page - 23BCE1599</p>
+      </header>
+
+      <div class="alphabet-display">
+        <span class="a">A</span>
+        <span class="b">B</span>
+        <span class="c">C</span>
+        <span class="d">D</span>
+        <span class="e">E</span>
+        <span class="f">F</span>
+      </div>
+
+      <div class="name-formats">
+        <p><strong>Abeer</strong> <em>Kumar</em> <u>Gupta</u></p>
+      </div>
+
+      <!-- <img -->
+      class="passport-img"
+      src="https://source.unsplash.com/random/120x150/?portrait" alt="Passport
+      Photo" />
+
+      <div class="paragraphs">
+        <p class="ambition">
+          My ambition is to become a skilled software engineer who creates
+          impactful applications that solve real-world problems. I aspire to
+          work with cutting-edge technologies and contribute to innovative
+          projects that can make a difference in people's lives.
+        </p>
+
+        <p class="hobbies">
+          In my free time, I enjoy coding personal projects, playing basketball,
+          reading science fiction novels, and exploring new hiking trails. I'm
+          also passionate about photography and experimenting with new recipes
+          in the kitchen.
+        </p>
+      </div>
+
+      <div class="equations">
+        <p>(a-b)<sup>2</sup> = a<sup>2</sup> - 2ab + b<sup>2</sup></p>
+        <p>2H<sub>2</sub> + O<sub>2</sub> = 2H<sub>2</sub>O</p>
+      </div>
+
+      <div class="c-program">
+        <pre>
+#include &lt;stdio.h&gt;
+int main() {
+    long accountNumber = 12345678901;
+    float balance = 15750.50;
+    printf("Account Number: %ld\n", accountNumber);
+    printf("Balance: ₹%.2f\n", balance);
+    return 0;
+}
+            </pre
+        >
+      </div>
+
+      <div class="marquee-container">
+        <marquee behavior="scroll" direction="left"
+          >Roll Number: 23BCE1599</marquee
+        >
+      </div>
+
+      <div class="tag-examples">
+        <p>
+          <abbr title="World Health Organization">WHO</abbr> is a specialized
+          agency of the United Nations.
+        </p>
+
+        <div class="meter-container">
+          <label>Skill Level:</label>
+          <meter value="0.7" min="0" max="1">70%</meter>
+        </div>
+
+        <div class="progress-container">
+          <label>Project Completion:</label>
+          <progress value="80" max="100"></progress> 80%
+        </div>
+
+        <details>
+          <summary>About My Course</summary>
+          <p>
+            I am studying Computer Science Engineering, focusing on web
+            development, artificial intelligence, and cybersecurity.
+          </p>
+        </details>
+      </div>
+
+      <footer>
+        <p>
+          <a href="greeting.html">Go to E-Greeting Page</a> |
+          <a href="mailto:abeer.gupta@example.com">Contact Me</a>
+        </p>
+      </footer>
+    </div>
+
+    <button id="top-btn" title="Go to top">Top</button>
+
+    <script>
+      window.onscroll = function () {
+        scrollFunction();
+      };
+
+      function scrollFunction() {
+        if (
+          document.body.scrollTop > 20 ||
+          document.documentElement.scrollTop > 20
+        ) {
+          document.getElementById("top-btn").style.display = "block";
+        } else {
+          document.getElementById("top-btn").style.display = "none";
+        }
+      }
+
+      document.getElementById("top-btn").addEventListener("click", function () {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+      });
+    </script>
+  </body>
+</html>

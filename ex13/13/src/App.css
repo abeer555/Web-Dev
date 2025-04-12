@@ -1,0 +1,74 @@
+body {
+    font-family: sans-serif;
+    padding: 15px;
+    background-color: whitesmoke;
+}
+
+.App {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.App > h1 {
+    text-align: center;
+    color: darkblue;
+    margin-bottom: 25px;
+}
+
+.component-section {
+    margin-bottom: 20px;
+    padding: 15px;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.component-section h2 {
+    margin-top: 0;
+    font-size: 1.2em;
+    color: navy;
+    border-bottom: 1px solid lightblue;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+}
+
+.component-section h3 {
+     margin-top: 0;
+     margin-bottom: 5px;
+     font-size: 1em;
+     color: darkslategray;
+}
+
+button {
+    padding: 8px 12px;
+    margin-top: 5px;
+    cursor: pointer;
+    background-color: lightsteelblue;
+    border: 1px solid steelblue;
+    color: black;
+    border-radius: 3px;
+}
+
+button:hover {
+    background-color: steelblue;
+    color: white;
+}
+
+input[type="number"] {
+    padding: 5px;
+    margin: 0 5px;
+    border: 1px solid lightgray;
+    border-radius: 3px;
+}
+
+label {
+    margin-right: 5px;
+    margin-bottom: 5px;
+    display: inline-block; /* Better alignment */
+}
+
+ul {
+    list-style: disc;
+    margin-left: 20px;
+}

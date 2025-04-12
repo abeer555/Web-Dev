@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Note: Display your Register number in title bar. -->
+    <title>Exercise 8 - 23BCE1599</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 20px;
+            line-height: 1.6;
+        }
+        .section {
+            margin-bottom: 25px;
+            padding: 15px;
+            border: 1px solid #ccc;
+            background-color: #f9f9f9;
+        }
+        h2 {
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 5px;
+            margin-top: 0;
+        }
+        button {
+            padding: 8px 12px;
+            margin-top: 5px;
+            cursor: pointer;
+        }
+        #regNoOutput, #nameOutput {
+            margin-top: 10px;
+            min-height: 30px; /* Ensure space for output */
+        }
+        /* Styles for Part 6 */
+        #ticketBooth label {
+            display: inline-block;
+            width: 120px;
+            margin-bottom: 5px;
+        }
+        #ticketBooth input[type="number"],
+        #ticketBooth input[type="text"] {
+            width: 60px;
+            padding: 5px;
+            margin-bottom: 5px;
+        }
+         #ticketBooth input[type="text"] {
+             background-color: #eee; /* Indicate read-only */
+         }
+        #totalButton {
+             margin-left: 125px; /* Align under labels */
+        }
+    </style>
+</head>
+<body>
+
+    <h1>JavaScript Basics - Exercise 8</h1>
+
+    <!-- Part 1 -->
+    <div class="section">
+        <h2>1. Basic Calculator (Prompt/Alert)</h2>
+        <button onclick="runCalculator()">Run Calculator</button>
+    </div>
+
+    <!-- Part 2 -->
+    <div class="section">
+        <h2>2. Driving Eligibility Check (Prompt/Alert)</h2>
+        <button onclick="checkDrivingEligibility()">Check Eligibility</button>
+    </div>
+
+    <!-- Part 3 -->
+    <div class="section">
+        <h2>3. Student Confirmation (Confirm/Alert)</h2>
+        <button onclick="confirmStudentStatus()">Confirm Student Status</button>
+    </div>
+
+    <!-- Part 4 -->
+    <div class="section">
+        <h2>4. Service Charge Calculator (Internal JS, Pop-ups)</h2>
+        <button onclick="calculateServiceCharge()">Calculate Service Charge</button>
+    </div>
+
+    <!-- Part 5 -->
+    <div class="section">
+        <h2>5. Display Reg No & Name</h2>
+        <button onclick="displayUserInfo()">Enter & Display Info</button>
+        <div id="regNoOutput"></div>
+        <div id="nameOutput"></div>
+        <script>
+            function displayRegNo(regNo) {
+                // Display registration number using document.write (into a div)
+                // Applying inline style as shown in the image ("one" box)
+                const regOutputDiv = document.getElementById('regNoOutput');
+                 if (regOutputDiv && regNo) {
+                     regOutputDiv.innerHTML = '<div style="border: 2px solid red; padding: 10px 20px; display: inline-block; text-align: center; font-weight: bold; background-color: white;">' + regNo + '</div>';
+                } else if (regOutputDiv) {
+                    regOutputDiv.innerHTML = ''; // Clear if no regNo
+                }
+            }
+             function displayName(name) {
+                // Display name using innerHTML with inline style as shown
+                const nameOutputDiv = document.getElementById('nameOutput');
+                if (nameOutputDiv && name) {
+                     nameOutputDiv.innerHTML = '<div style="border: 1px solid black; padding: 10px; display: inline-block; text-align: center; margin-top: 10px; background-color: white;">*' + name + '*</div>';
+                } else if (nameOutputDiv) {
+                     nameOutputDiv.innerHTML = ''; // Clear if no name
+                }
+             }
+
+             function displayUserInfo() {
+                const regNo = prompt("Enter your Registration Number:");
+                const name = prompt("Enter your Name:");
+                displayRegNo(regNo); // Call function to display reg no
+                displayName(name);   // Call function to display name
+             }
+        </script>
+    </div>
+
+    <!-- Part 6 -->
+    <div class="section" id="ticketBooth">
+        <h2>6. Circus Ticket Booth (External JS)</h2>
+        <h3>TICKET BOOTH</h3>
+        <div>
+            <label for="adultTickets">Adults (₹10 each)</label>
+            <input type="number" id="adultTickets" name="adultTickets" min="0" value="0">
+        </div>
+        <div>
+            <label for="childTickets">Children (₹5 each)</label>
+            <input type="number" id="childTickets" name="childTickets" min="0" value="0">
+        </div>
+        <div>
+            <button id="totalButton">Total</button>
+            <input type="text" id="totalAmount" name="totalAmount" readonly>
+        </div>
+    </div>
+
+
+    <!-- Internal JavaScript for Parts 1-4 -->
+    <script>
+        // Part 1: Basic Calculator
+        function runCalculator() {
+            const num1String = prompt("Enter the first number:");
+            const num2String = prompt("Enter the second number:");
+            const operation = prompt("Enter operation (+, -, *, /, %):");
+
+            const num1 = parseFloat(num1String);
+            const num2 = parseFloat(num2String);
+            let result;
+
+            if (isNaN(num1) || isNaN(num2)) {
+                alert("Invalid input. Please enter numbers.");
+                return;
+            }
+
+            switch (operation) {
+                case '+':
+                    result = num1 + num2;
+                    break;
+                case '-':
+                    result = num1 - num2;
+                    break;
+                case '*':
+                    result = num1 * num2;
+                    break;
+                case '/':
+                    if (num2 === 0) {
+                        alert("Error: Division by zero.");
+                        return;
+                    }
+                    result = num1 / num2;
+                    break;
+                case '%':
+                     if (num2 === 0) {
+                        alert("Error: Modulo by zero.");
+                        return;
+                    }
+                    result = num1 % num2;
+                    break;
+                default:
+                    alert("Invalid operation.");
+                    return;
+            }
+            alert("Result: " + num1 + " " + operation + " " + num2 + " = " + result);
+        }
+
+        // Part 2: Driving Eligibility
+        function checkDrivingEligibility() {
+            const ageString = prompt("Please enter your age:");
+            const age = parseInt(ageString);
+
+            if (isNaN(age)) {
+                 alert("Invalid age entered.");
+                 return;
+            }
+
+            if (age >= 18) {
+                alert("You are eligible to drive.");
+            } else {
+                alert("You are not eligible to drive yet.");
+            }
+        }
+
+        // Part 3: Student Confirmation
+        function confirmStudentStatus() {
+            const isStudent = confirm("Are you a student entering your registration number?");
+            if (isStudent) {
+                alert("Student status confirmed.");
+                // Proceed to ask for registration number if needed
+                // let regNo = prompt("Please enter your registration number:");
+            } else {
+                alert("Student status not confirmed.");
+            }
+        }
+
+        // Part 4: Service Charge Calculator
+        function calculateServiceCharge() {
+            const ratePerHour = 45;
+            const hoursString = prompt("Enter hours worked:");
+            const materialsCostString = prompt("Enter cost of materials (Rs.):");
+
+            const hoursWorked = parseFloat(hoursString);
+            const costOfMaterials = parseFloat(materialsCostString);
+
+             if (isNaN(hoursWorked) || hoursWorked < 0 || isNaN(costOfMaterials) || costOfMaterials < 0) {
+                alert("Invalid input. Please enter positive numbers for hours and cost.");
+                return;
+            }
+
+            const labourCost = ratePerHour * hoursWorked;
+            const totalCharge = labourCost + costOfMaterials;
+
+            alert("Labour Cost: Rs. " + labourCost.toFixed(2) +
+                  "\nTotal Charge: Rs. " + totalCharge.toFixed(2));
+        }
+    </script>
+
+    <!-- Link External JavaScript for Part 6 -->
+    <!-- 'defer' ensures HTML is parsed before script runs -->
+    <script src="ticket.js" defer></script>
+
+</body>
+</html>

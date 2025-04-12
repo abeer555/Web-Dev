@@ -1,0 +1,38 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN" "http://www.w3.org/TR/html4/frameset.dtd">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 5 - 23BCE1599</title>
+</head>
+
+<!-- Define the rows: Header, Middle Area, Footer -->
+<frameset rows="80px, *, 60px" border="1" framespacing="0">
+    <!-- Frame 1: Header -->
+    <frame src="header.html" name="headerFrame" scrolling="no" noresize>
+
+    <!-- Frame 2: Middle Area (contains columns) -->
+    <!-- Define the columns: Nav, Main, Aside -->
+    <frameset cols="150px, *, 180px" border="1">
+        <!-- Frame 2a: Navigation -->
+        <frame src="nav.html" name="navFrame" scrolling="auto" noresize>
+        <!-- Frame 2b: Main Content -->
+        <frame src="main_content.html" name="mainFrame" scrolling="auto">
+        <!-- Frame 2c: Aside -->
+        <frame src="aside.html" name="asideFrame" scrolling="auto">
+    </frameset>
+
+    <!-- Frame 3: Footer -->
+    <frame src="footer.html" name="footerFrame" scrolling="no" noresize>
+
+    <noframes>
+    <body>
+        <p>Your browser does not support frames. Please use a modern browser.</p>
+         <p>This page requires frames to display the resume layout.</p>
+         <p><a href="main_content.html">View Resume Content Directly</a></p>
+    </body>
+    </noframes>
+
+</frameset>
+
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Note: Display your Register number in title bar. -->
+    <title>Exercise 6 - 23BCE1599</title>
+    <style>
+      /* Internal CSS for Part 1 Pseudo-class */
+      .data-science-list li::first-letter {
+        font-size: 1.5em; /* Make initial cap larger */
+        font-weight: bold;
+        color: navy; /* Example color for emphasis */
+      }
+
+      /* Internal CSS for Part 3 */
+      .photo-container {
+        text-align: center; /* Center image and title */
+        margin-top: 20px;
+        margin-bottom: 20px;
+      }
+
+      .myphto {
+        /* ◆ The image border is rounded, so that it appears as a circle. */
+        border-radius: 50%;
+        /* ◆ The image width and height should both be 150px. */
+        width: 150px;
+        height: 150px;
+        /* ◆ The image should have a solid border with a width of 2px and be colored with your favourite color. */
+        border: 2px solid blue; /* Replace 'blue' with your favourite standard color name */
+        object-fit: cover; /* Ensures image covers the area without distortion */
+        display: block; /* Helps with centering */
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .image-title {
+        /* Apply animation */
+        animation: titleAnimation 5s infinite alternate;
+        margin-top: 10px;
+        font-weight: bold;
+      }
+
+      /* ◆ Add a title to the image and apply a font change and color-change animation effect. */
+      /* Use percentage to apply different colors and change the font size. */
+      @keyframes titleAnimation {
+        0% {
+          color: black;
+          font-size: 1em; /* Normal size */
+        }
+        50% {
+          color: green;
+          font-size: 1.2em; /* Slightly larger */
+        }
+        100% {
+          color: red;
+          font-size: 1.1em; /* Back towards normal */
+        }
+      }
+
+      /* General Body Styling */
+      body {
+        font-family: sans-serif;
+        margin: 20px;
+      }
+      hr {
+        margin: 30px 0;
+      }
+      h2 {
+        color: darkslategray;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>CSS Implementations - Exercise 6</h1>
+
+    <!-- Part 1: Inline CSS & Pseudo-class -->
+    <h2>Part 1: Data Science Info</h2>
+    <!-- Apply styles using INLINE CSS to the below table (using div/h3/ul instead of table) -->
+    <div
+      style="
+        background-color: orange;
+        padding: 15px;
+        border: 1px solid gray;
+        margin-bottom: 20px;
+      "
+    >
+      <h3 style="text-align: center; color: darkred; margin-bottom: 10px">
+        LEARN DATA SCIENCE!
+      </h3>
+      <ul
+        class="data-science-list"
+        style="list-style-type: disc; margin-left: 20px; color: black"
+      >
+        <!-- Add pseudo-class to make initial cap using internal CSS (applied via class) -->
+        <li>Unlimited jobs</li>
+        <li>Best benefits anywhere</li>
+        <li>Call now for an appointment</li>
+      </ul>
+    </div>
+
+    <hr />
+
+    <!-- Placeholder/Link for Part 2 -->
+    <h2>Part 2: Calculator</h2>
+    <p>
+      The calculator is designed in a separate file:
+      <a href="calculator.html">calculator.html</a> (requires `calc.css` in the
+      same directory).
+    </p>
+    <p>
+      <i>(See `calculator.html` and `calc.css` files provided separately).</i>
+    </p>
+
+    <hr />
+
+    <!-- Part 3: Favourite Singer Photo -->
+    <h2>Part 3: Favourite Singer</h2>
+    <div class="photo-container">
+      <!-- Add an INTERNAL CSS class named myphto -->
+      <!-- Include your favourite singer's photo as an image. -->
+      <img
+        src="https://via.placeholder.com/150/0000FF/FFFFFF?text=Singer"
+        alt="Favourite Singer"
+        class="myphto"
+      />
+      <!-- Add a title to the image -->
+      <p class="image-title">Awesome Singer Name</p>
+    </div>
+  </body>
+</html>

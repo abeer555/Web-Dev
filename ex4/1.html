@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Note: Display your registration number in the title bar. -->
+    <title>Exercise 4 - 23BCE1599</title>
+    <style>
+      body {
+        font-family: sans-serif;
+        margin: 20px;
+      }
+      fieldset {
+        margin-bottom: 15px;
+        padding: 15px;
+        border: 1px solid #ccc;
+      }
+      legend {
+        font-weight: bold;
+        padding: 0 5px;
+      }
+      label {
+        display: inline-block; /* Align labels better */
+        margin-right: 5px;
+        margin-bottom: 5px;
+        vertical-align: middle;
+      }
+      input[type="text"],
+      input[type="password"],
+      input[type="email"],
+      input[type="date"],
+      input[type="tel"],
+      select,
+      textarea {
+        margin-bottom: 10px;
+        padding: 5px;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+        min-width: 200px; /* Consistent width */
+      }
+      input[type="radio"],
+      input[type="checkbox"] {
+        margin-right: 3px;
+        vertical-align: middle;
+      }
+      .form-section {
+        margin-bottom: 30px;
+        padding: 15px;
+        border: 1px solid #ddd;
+        background-color: #f9f9f9;
+      }
+      input[type="submit"],
+      input[type="reset"],
+      button {
+        padding: 8px 15px;
+        margin-right: 10px;
+        cursor: pointer;
+        border: 1px solid #aaa;
+        border-radius: 4px;
+        background-color: #eee;
+      }
+      input[type="submit"]:hover,
+      button:hover {
+        background-color: #ddd;
+      }
+      input[type="reset"]:hover {
+        background-color: #fdd;
+      }
+      hr {
+        margin: 30px 0;
+      }
+      /* Part 3 styling */
+      .slider-container {
+        margin-bottom: 15px;
+        display: flex;
+        align-items: center;
+      }
+      .slider-container label {
+        width: 100px; /* Fixed width for slider labels */
+      }
+      input[type="range"] {
+        flex-grow: 1;
+        margin-right: 10px;
+      }
+      output {
+        font-weight: bold;
+        border: 1px solid #aaa;
+        padding: 3px 8px;
+        background-color: #eee;
+        min-width: 30px;
+        display: inline-block;
+        text-align: center;
+      }
+      .total-output-container label {
+        margin-right: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>HTML Forms - Exercise 4</h1>
+
+    <!-- Part 1: Login Form -->
+    <div class="form-section">
+      <h2>1. Login Form</h2>
+      <form action="#" method="post">
+        <fieldset>
+          <legend>Login</legend>
+          <div>
+            <label for="username">Username*</label>
+            <input type="text" id="username" name="username" required />
+          </div>
+          <div>
+            <label for="password">Password*</label>
+            <input type="password" id="password" name="password" required />
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Gender*</legend>
+          <input type="radio" id="male" name="gender" value="male" required />
+          <label for="male">Male</label>
+          <input
+            type="radio"
+            id="female"
+            name="gender"
+            value="female"
+            required
+          />
+          <label for="female">Female</label>
+        </fieldset>
+
+        <fieldset>
+          <legend>Programming Skill</legend>
+          <input type="checkbox" id="java" name="skill" value="java" />
+          <label for="java">Java</label>
+          <input type="checkbox" id="cpp" name="skill" value="cpp" checked />
+          <label for="cpp">C++</label>
+          <input type="checkbox" id="csharp" name="skill" value="csharp" />
+          <label for="csharp">C#</label>
+        </fieldset>
+
+        <fieldset>
+          <legend>Fruit</legend>
+          <label for="fruit">Choose a fruit:</label>
+          <select id="fruit" name="fruit">
+            <optgroup label="Pome">
+              <option value="apple">Apples</option>
+              <option value="pear">Pears</option>
+            </optgroup>
+            <optgroup label="Citrus">
+              <option value="orange">Oranges</option>
+              <option value="grapefruit">Grapefruits</option>
+              <option value="mandarin">Mandarins</option>
+              <option value="lime">Limes</option>
+            </optgroup>
+            <optgroup label="Stone">
+              <option value="nectarine">Nectarines</option>
+              <option value="apricot">Apricots</option>
+              <option value="peach">Peaches</option>
+              <option value="plum">Plums</option>
+            </optgroup>
+            <optgroup label="Exotic">
+              <option value="banana" selected>Bananas</option>
+              <option value="mango">Mangoes</option>
+            </optgroup>
+            <optgroup label="Berries">
+              <option value="strawberry">Strawberries</option>
+              <option value="raspberry">Raspberries</option>
+              <option value="blueberry">Blueberries</option>
+              <option value="kiwifruit">Kiwifruit</option>
+              <option value="passionfruit">Passionfruit</option>
+            </optgroup>
+            <optgroup label="Melons">
+              <option value="watermelon">Watermelons</option>
+              <option value="rockmelon">Rock-melons</option>
+              <option value="honeydew">Honeydew melons</option>
+            </optgroup>
+          </select>
+        </fieldset>
+
+        <fieldset>
+          <legend>Comments</legend>
+          <textarea
+            id="comment"
+            name="comment"
+            rows="5"
+            cols="50"
+            placeholder="Enter your comment here"
+          ></textarea>
+        </fieldset>
+
+        <div>
+          <input type="submit" value="SEND" />
+          <input type="reset" value="RESET" />
+        </div>
+      </form>
+    </div>
+
+    <hr />
+
+    <!-- Part 2: Resume Page -->
+    <div class="form-section">
+      <h2>2. Resume Page</h2>
+      <form action="#" method="post" enctype="multipart/form-data">
+        <fieldset>
+          <legend>Personal Details</legend>
+          <div>
+            <label for="resume_name">Name :</label>
+            <input type="text" id="resume_name" name="resume_name" />
+          </div>
+          <div>
+            <label for="resume_password">Password :</label>
+            <input
+              type="password"
+              id="resume_password"
+              name="resume_password"
+            />
+          </div>
+          <div>
+            <label for="resume_email">E-mail id :</label>
+            <input type="email" id="resume_email" name="resume_email" />
+          </div>
+          <div>
+            <label>Gender :</label>
+            <input
+              type="radio"
+              id="resume_male"
+              name="resume_gender"
+              value="male"
+            />
+            <label for="resume_male">Male</label>
+            <input
+              type="radio"
+              id="resume_female"
+              name="resume_gender"
+              value="female"
+              checked
+            />
+            <!-- Default to Female as per image -->
+            <label for="resume_female">Female</label>
+          </div>
+          <div>
+            <label for="dob">DOB :</label>
+            <input type="date" id="dob" name="dob" placeholder="mm/dd/yyyy" />
+            <!-- Placeholder may not show for type=date -->
+          </div>
+          <div>
+            <label for="mobile">Mobile# :</label>
+            <input type="tel" id="mobile" name="mobile" />
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Educational Qualification</legend>
+          <div>
+            <label for="degree">Degree :</label>
+            <select id="degree" name="degree">
+              <option value="" selected>-- Select Group --</option>
+              <optgroup label="UG">
+                <option value="be">BE</option>
+                <option value="btech">BTech</option>
+                <option value="bsc">BSc</option>
+                <option value="ba">BA</option>
+                <option value="bca">BCA</option>
+                <option value="bba">BBA</option>
+                <option value="ug_other">Others</option>
+              </optgroup>
+              <optgroup label="PG">
+                <option value="me">ME</option>
+                <option value="mtech">MTech</option>
+                <option value="msc">MSc</option>
+                <option value="ma">MA</option>
+                <option value="mca">MCA</option>
+                <option value="mba">MBA</option>
+                <option value="pg_other">Others</option>
+              </optgroup>
+              <optgroup label="PhD">
+                <option value="phd_eng">Engineering</option>
+                <option value="phd_sci">Science</option>
+                <option value="phd_mgmt">Management</option>
+                <option value="phd_other">Others</option>
+              </optgroup>
+            </select>
+          </div>
+          <div>
+            <label for="engineering">Engineering:</label>
+            <select id="engineering" name="engineering">
+              <option value="" selected>-- Select Group --</option>
+              <option value="cse">CSE</option>
+              <option value="ece">ECE</option>
+              <option value="eee">EEE</option>
+              <option value="civil">CIVIL</option>
+              <option value="mech">MECH</option>
+            </select>
+          </div>
+          <div>
+            <label>Hobbies :</label>
+            <input
+              type="checkbox"
+              id="hobby_chess"
+              name="hobby"
+              value="chess"
+            />
+            <label for="hobby_chess">Playing chess</label>
+            <input
+              type="checkbox"
+              id="hobby_books"
+              name="hobby"
+              value="books"
+            />
+            <label for="hobby_books">Reading Books</label>
+          </div>
+          <div>
+            <label for="favcolor">Favourite Color:</label>
+            <input type="color" id="favcolor" name="favcolor" value="#000000" />
+            <!-- Default to black as per image -->
+          </div>
+          <div>
+            <label for="address">Address</label><br />
+            <textarea id="address" name="address" rows="4" cols="50"></textarea>
+          </div>
+          <div>
+            <label for="resume_file">Attach Resume:</label>
+            <input type="file" id="resume_file" name="resume_file" />
+            <!-- The "Browse..." button is part of the default file input -->
+          </div>
+        </fieldset>
+
+        <div>
+          <input type="submit" value="Submit" />
+        </div>
+      </form>
+    </div>
+
+    <hr />
+
+    <!-- Part 3: Product Feedback -->
+    <div class="form-section">
+      <h2>3. Product Feedback</h2>
+      <!-- The oninput attribute on the form handles the dynamic calculation -->
+      <form
+        action="#"
+        method="get"
+        oninput="total.value = parseInt(slider1.value) + parseInt(slider2.value) + parseInt(slider3.value)"
+      >
+        <div class="slider-container">
+          <label for="slider1">Feature 1:</label>
+          <input
+            type="range"
+            id="slider1"
+            name="slider1"
+            min="0"
+            max="10"
+            value="5"
+          />
+          <output name="s1_out" for="slider1">5</output>
+          <!-- Optional: display individual slider value -->
+        </div>
+        <div class="slider-container">
+          <label for="slider2">Usability:</label>
+          <input
+            type="range"
+            id="slider2"
+            name="slider2"
+            min="0"
+            max="10"
+            value="5"
+          />
+          <output name="s2_out" for="slider2">5</output>
+          <!-- Optional: display individual slider value -->
+        </div>
+        <div class="slider-container">
+          <label for="slider3">Design:</label>
+          <input
+            type="range"
+            id="slider3"
+            name="slider3"
+            min="0"
+            max="10"
+            value="5"
+          />
+          <output name="s3_out" for="slider3">5</output>
+          <!-- Optional: display individual slider value -->
+        </div>
+
+        <hr style="margin: 15px 0" />
+
+        <div class="total-output-container">
+          <label>Total Value:</label>
+          <!-- The output element displays the sum calculated by the form's oninput -->
+          <output name="total" for="slider1 slider2 slider3">15</output>
+        </div>
+      </form>
+      <!-- Script to update individual slider outputs (Optional enhancement) -->
+      <script>
+        document.getElementById("slider1").oninput = function () {
+          document.querySelector('output[name="s1_out"]').value = this.value;
+        };
+        document.getElementById("slider2").oninput = function () {
+          document.querySelector('output[name="s2_out"]').value = this.value;
+        };
+        document.getElementById("slider3").oninput = function () {
+          document.querySelector('output[name="s3_out"]').value = this.value;
+        };
+      </script>
+    </div>
+  </body>
+</html>

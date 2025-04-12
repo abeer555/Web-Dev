@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <style>
+      body {
+        text-align: center;
+      }
+    </style>
+    <script>
+      function calculateCosts() {
+        const RATE_PER_HOUR = 45;
+
+        let hours = prompt("Enter the number of hours worked:");
+        if (hours === null || hours.trim() === "") {
+          alert("Hours worked is required!");
+          return;
+        }
+
+        let materialCost = prompt("Enter the cost of materials (in Rs.):");
+        if (materialCost === null || materialCost.trim() === "") {
+          alert("Material cost is required!");
+          return;
+        }
+
+        // Convert inputs to numbers
+        hours = parseFloat(hours);
+        materialCost = parseFloat(materialCost);
+
+        // Calculate costs
+        let labourCost = RATE_PER_HOUR * hours;
+        let totalCharge = labourCost + materialCost;
+
+        // Display results
+        alert(
+          "Labour Cost: Rs." +
+            labourCost.toFixed(2) +
+            "\nMaterial Cost: Rs." +
+            materialCost.toFixed(2) +
+            "\nTotal Charge: Rs." +
+            totalCharge.toFixed(2)
+        );
+      }
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Service Cost Calculator</title>
+  </head>
+  <body>
+    <h1>Service Cost Calculator</h1>
+    <input
+      type="button"
+      value="Calculate Costs"
+      style="background-color: red"
+      onclick="calculateCosts()"
+    />
+  </body>
+</html>
