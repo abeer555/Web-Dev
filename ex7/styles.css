@@ -1,0 +1,110 @@
+/* External CSS for Part 2 */
+
+body {
+  /* Use a background image and align it to the center */
+  /* Replace 'background.jpg' with your actual image file */
+  background-image: url("background.jpg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed; /* Keep background fixed during scroll */
+  background-size: cover; /* Cover the entire viewport */
+  margin: 0; /* Remove default body margin */
+  padding: 20px; /* Add some padding around content */
+  font-family: sans-serif; /* Basic font */
+}
+
+/* Apply a rainbow effect to any heading (targeting the specific ID) */
+#pets-heading {
+  font-size: 2.5em;
+  font-weight: bold;
+  text-align: center;
+  animation: rainbow-text 5s infinite linear;
+}
+
+@keyframes rainbow-text {
+  0% {
+    color: red;
+  }
+  15% {
+    color: orange;
+  }
+  30% {
+    color: yellow;
+  }
+  45% {
+    color: green;
+  }
+  60% {
+    color: blue;
+  }
+  75% {
+    color: indigo;
+  }
+  90% {
+    color: violet;
+  }
+  100% {
+    color: red;
+  }
+}
+
+/* Ensure the descriptions are displayed in a multi-column format */
+#pet-descriptions {
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.8
+  ); /* Semi-transparent background for readability */
+  padding: 20px;
+  border-radius: 8px;
+  column-count: 2; /* Adjust number of columns as needed (e.g., 2 or 3) */
+  column-gap: 40px; /* Space between columns */
+  /* With a line height of 30pt */
+  line-height: 30pt;
+  margin-bottom: 30px; /* Space before the ball animation */
+}
+
+/* Container for the ball animation */
+#ball-animation-container {
+  width: 100%; /* Take full width */
+  min-height: 150px; /* Ensure space for animation */
+  display: flex;
+  flex-direction: column; /* Stack text and SVG */
+  align-items: center; /* Center ball horizontally */
+  justify-content: center; /* Center vertically if needed */
+  overflow: hidden; /* Hide parts of the ball if it moves outside */
+  position: relative; /* Needed for absolute positioning if used, or for perspective */
+  padding: 20px 0;
+}
+
+/* Insert a ball using SVG, and create an effect */
+/* Apply translation, rotation, and shearing effects to the ball */
+#playing-ball {
+  display: block; /* Remove extra space below SVG */
+  margin-top: 10px;
+  animation: dog-playing 4s infinite ease-in-out alternate;
+}
+
+@keyframes dog-playing {
+  0% {
+    /* Start position, slight rotation, no shear */
+    transform: translate(0, 0) rotate(0deg) skew(0deg, 0deg);
+  }
+  25% {
+    /* Move right and down, rotate, slight shear */
+    transform: translate(50px, 30px) rotate(90deg) skew(10deg, 5deg);
+  }
+  50% {
+    /* Move further right/center, rotate back, opposite shear */
+    transform: translate(0px, 10px) rotate(-90deg) skew(-5deg, -10deg);
+  }
+  75% {
+    /* Move left and up, rotate, slight shear */
+    transform: translate(-50px, -20px) rotate(180deg) skew(5deg, 10deg);
+  }
+  100% {
+    /* Return near start, full rotation, no shear */
+    transform: translate(0, 0) rotate(360deg) skew(0deg, 0deg);
+  }
+}

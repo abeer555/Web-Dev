@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Note: Display your Register number in title bar. -->
+    <title>Exercise 7 - 23BCE1599</title>
+    <!-- Link to external CSS for Part 2 -->
+    <link rel="stylesheet" href="styles.css">
+    <!-- Embedded CSS for Part 1 -->
+    <style>
+        /* Part 1: Box Model Styles */
+        .box-container {
+             /* This acts as the yellow "Layout" background area */
+             background-color: rgb(255, 255, 0); /* Yellow using RGB */
+             padding: 20px; /* Space between yellow bg and green border */
+             margin: 25px; /* Margin outside the yellow area */
+             display: inline-block; /* Fit container to content + padding */
+             border: none; /* The yellow area doesn't have its own border in the diagram */
+        }
+
+        .box-model-example {
+            /* Dimensions specified for the inner blue box */
+            width: 400px;
+            height: 100px;
+            /* Blue background using Hexadecimal */
+            background-color: #0000FF;
+            color: white; /* Make text visible on blue */
+            /* Padding inside the blue box */
+            padding: 20px;
+            /* Green border */
+            border: 6px solid green;
+             /* No margin needed here, handled by outer .box-container */
+             /* Ensure box-sizing includes padding and border in width/height calculation */
+             box-sizing: border-box;
+             /* Center text vertically for better appearance, though not strictly required */
+             display: flex;
+             align-items: center;
+             justify-content: center;
+        }
+        .box-model-example p {
+            margin: 0; /* Remove default paragraph margin */
+        }
+
+        /* General Styles for separation */
+         h1, h2 {
+             text-align: center;
+             color: navy;
+         }
+         hr {
+             margin: 30px 0;
+         }
+         .section-divider {
+            border: 0;
+            height: 2px;
+            background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+            margin: 40px 0;
+         }
+
+    </style>
+</head>
+<body>
+
+    <h1>CSS Exercise 7</h1>
+
+    <!-- Part 1 Section -->
+    <h2>Part 1: Box Model Example</h2>
+    <div class="box-container">
+        <div class="box-model-example">
+            <p>
+                Sentence one about college life at VIT.
+                Sentence two describing an experience.
+                Sentence three reflecting on learning.
+            </p>
+        </div>
+    </div>
+
+    <hr class="section-divider">
+
+    <!-- Part 2 Section -->
+    <div id="pet-section">
+        <h2 id="pets-heading">Wonderful Pet Animals</h2>
+
+        <div id="pet-descriptions">
+            <p>Dogs are known as "man's best friend" for a reason. They are loyal, playful, and offer unconditional love. From energetic Labradors to tiny Chihuahuas, there's a breed for every lifestyle. Regular walks, playtime, and proper care ensure they live happy and healthy lives.</p>
+            <p>Cats are often admired for their independence and graceful movements. They can be affectionate companions, enjoying quiet cuddles, or curious explorers, finding amusement in the simplest things. Whether napping in a sunbeam or chasing a toy, cats bring a unique charm to any home.</p>
+            <p>Birds, like parrots and canaries, can brighten a home with their vibrant colors and cheerful songs. They require specialized care, including spacious cages, proper nutrition, and social interaction. With patience, many birds can even learn to mimic sounds or words.</p>
+             <p>Fish offer a tranquil and mesmerizing presence. Setting up an aquarium requires understanding water parameters, filtration, and compatible species. Watching colorful fish glide through a well-maintained tank can be a relaxing and rewarding hobby for people of all ages.</p>
+        </div>
+
+        <div id="ball-animation-container">
+            <p style="text-align: center; font-style: italic;">A dog playing with a ball:</p>
+            <!-- Insert a ball using SVG -->
+            <svg id="playing-ball" width="50" height="50" viewBox="0 0 100 100">
+                <circle cx="50" cy="50" r="45" fill="red" stroke="black" stroke-width="2"/>
+            </svg>
+        </div>
+    </div>
+
+</body>
+</html>
