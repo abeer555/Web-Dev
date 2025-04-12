@@ -5,23 +5,58 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Classwork Exercises</title>
     <style>
-        body {
-            font-family: sans-serif;
-            padding: 20px;
+        :root {
+            --primary-color: #3a86ff;
+            --bg-color: #f8f9fa;
+            --text-color: #333;
+            --hover-color: #2667cc;
         }
+        
+        body {
+            font-family: 'Segoe UI', Roboto, -apple-system, BlinkMacSystemFont, sans-serif;
+            padding: 5% 10%;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.6;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+        }
+        
+        h1 {
+            font-weight: 300;
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-color);
+            border-bottom: 1px solid #eee;
+            padding-bottom: 0.5rem;
+        }
+        
         ul {
             list-style: none;
             padding: 0;
         }
+        
         li {
-            margin-bottom: 10px;
+            margin-bottom: 12px;
+            transition: transform 0.2s ease;
+            padding: 8px 12px;
+            border-radius: 4px;
         }
+        
+        li:hover {
+            transform: translateX(5px);
+            background-color: rgba(0,0,0,0.02);
+        }
+        
         a {
             text-decoration: none;
-            color: #007bff;
+            color: var(--primary-color);
+            display: block;
+            font-weight: 500;
         }
+        
         a:hover {
-            text-decoration: underline;
+            color: var(--hover-color);
         }
     </style>
 </head>
