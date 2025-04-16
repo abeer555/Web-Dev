@@ -1,3 +1,9 @@
+# Live
+
+This is the live deployment of the Web Development exercises. You can access it here:
+
+https://abeer555.github.io/Web-Dev/
+
 # WebDev Classwork Exercises
 
 This repository contains a collection of web development exercises completed as part of a web development course. The exercises cover various aspects of web development including HTML, CSS, JavaScript, DOM manipulation, and React.
